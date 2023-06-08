@@ -133,6 +133,15 @@ return require("packer").startup(function(use)
 	-- ## Display Color and Picker## --
 	use("uga-rosa/ccc.nvim")
 
+	-- ## Git ##
+	use("lewis6991/gitsigns.nvim")
+	use({
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 	-- Project NVIM --
 	use({
 		"ahmedkhalf/project.nvim",

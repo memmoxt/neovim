@@ -33,4 +33,5 @@ wk.register({
 	["<leader>e"] = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" },
 
 	["<C-`>"] = { "<cmd>cd %:h<cr><cmd>ToggleTerm<cr>", "Toggle Terminal" },
+    -- Toggle terminal on the current buffer path, you need to exit to reset the opening path
 })

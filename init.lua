@@ -15,5 +15,5 @@ require("plugins.nvim_tree")
 require("plugins.devicons")
 require("plugins.which_key")
 require("plugins.key-lab")
-
+require("plugins.gitsigns")
 require("plugins.toggle_term")

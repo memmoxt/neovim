@@ -142,6 +142,7 @@ return require("packer").startup(function(use)
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
 				-- sync_root_with_cwd = true,
+				sync_root_with_cwd = true,
 				respect_buf_cwd = true,
 				update_focused_file = {
 					enable = true,

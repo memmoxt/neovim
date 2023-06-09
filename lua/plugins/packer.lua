@@ -142,6 +142,7 @@ return require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	})
+
 	-- Project NVIM --
 	use({
 		"ahmedkhalf/project.nvim",

@@ -143,6 +143,9 @@ return require("packer").startup(function(use)
 		},
 	})
 
+	-- ## Screen Saver ##
+	use({ "tamton-aquib/zone.nvim" })
+
 	-- Project NVIM --
 	use({
 		"ahmedkhalf/project.nvim",

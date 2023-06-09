@@ -31,6 +31,7 @@ wk.register({
 		k = {
 			name = "Vim Trainning",
 			l = { "<cmd>KeylabStart<cr>", "Key-Lab" },
+			k = { "<cmd>VimBeGood<cr>", "Vim Be Good" },
 		},
 		td = {
 			name = "Gitsigns - Toggle Deleted",

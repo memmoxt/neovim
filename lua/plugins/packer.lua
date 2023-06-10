@@ -72,7 +72,19 @@ return require("packer").startup(function(use)
 	-- ## HIGHLIGHTS ## --
 	use("RRethy/vim-illuminate")
 	use("lukas-reineke/indent-blankline.nvim")
-
+	use({
+		"mawkler/modicator.nvim",
+		after = "onedark.nvim", -- Add your colorscheme plugin here
+		setup = function()
+			-- These are required for Modicator to work
+			vim.o.cursorline = true
+			vim.o.number = true
+			vim.o.termguicolors = true
+		end,
+		config = function()
+			require("modicator").setup()
+		end,
+	})
 	-- ## Alpha ## --
 	use({
 		"goolord/alpha-nvim",
@@ -142,9 +154,6 @@ return require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	})
-
-	-- ## Screen Saver ##
-	use({ "tamton-aquib/zone.nvim" })
 
 	-- Project NVIM --
 	use({

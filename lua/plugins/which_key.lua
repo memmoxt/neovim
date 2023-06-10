@@ -11,6 +11,9 @@ wk.register({
 			g = { "<cmd>Telescope grep_string<cr>", "GREP" },
 			h = { "<cmd>Telescope help_tags<cr>", "Help" },
 		},
+
+		g = { "<cmd>LazyGit<cr>", "LazyGit" },
+
 		h = {
 			name = "Gitsigns",
 			r = { name = "Reset Hunk" },

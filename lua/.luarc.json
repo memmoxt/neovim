@@ -46,5 +46,6 @@
         "/home/memmoxt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after",
         "${3rd}/luv/library",
         "${3rd}/luassert/library"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }

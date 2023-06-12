@@ -24,6 +24,7 @@ null_ls.setup({
 		formatting.stylua,
 		--formatting.shfmt,
 		-- formatting.rome,
+
 		diagnostics.shellcheck,
 		diagnostics.stylelint.with({
 			filetypes = { "css" },

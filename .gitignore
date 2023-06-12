@@ -1,2 +1,2 @@
 plugin/*
-lua/.luarc.json
+*.json

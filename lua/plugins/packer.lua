@@ -72,10 +72,9 @@ return require("packer").startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 
 	-- ## Fold Code ## --
-
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
-    -- ## Alpha ## --
+	-- ## Alpha ## --
 	use({
 		"goolord/alpha-nvim",
 		requires = { "nvim-tree/nvim-web-devicons" },
@@ -119,6 +118,9 @@ return require("packer").startup(function(use)
 	--## Games ##--
 	use("BooleanCube/keylab.nvim")
 	use("ThePrimeagen/vim-be-good")
+
+	--## Leap ##--
+	use("ggandor/leap.nvim")
 
 	--## Surround ##--
 	use({

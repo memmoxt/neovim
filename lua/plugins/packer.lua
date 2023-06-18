@@ -139,6 +139,11 @@ return require("packer").startup(function(use)
 			require("Comment").setup()
 		end,
 	})
+
+	use({
+		"folke/todo-comments.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
 	-- ## Display Color and Picker## --
 	use("uga-rosa/ccc.nvim")
 

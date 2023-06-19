@@ -151,6 +151,9 @@ return require("packer").startup(function(use)
 	-- ## Display Color and Picker## --
 	use("uga-rosa/ccc.nvim")
 
+	-- ## Dial ## --
+	use("monaqa/dial.nvim")
+
 	-- ## Git ##
 	use("lewis6991/gitsigns.nvim")
 	use({

@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
 	-- ## LSP ##
 	use({
 		"williamboman/mason.nvim",
-		run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+		run = ":MasonUpdate",             -- :MasonUpdate updates registry contents
 	})
 	use("williamboman/mason-lspconfig.nvim") -- simple to use language server installer
 	use("neovim/nvim-lspconfig")
@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function()
 			require("lsp_lines").setup(
-				-- Disable virtual_text since it's redundant due to lsp_lines.
+			-- Disable virtual_text since it's redundant due to lsp_lines.
 				vim.diagnostic.config({
 					virtual_text = false,
 				})
@@ -69,7 +69,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lua") -- nvim opt,keymap,etc completions
+	use("hrsh7th/cmp-nvim-lua")  -- nvim opt,keymap,etc completions
 
 	-- ## LUALINE ## --
 	use({
@@ -87,7 +87,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("eyeliner").setup({
 				highlight_on_key = true, -- show highlights only after keypress
-				dim = true, -- dim all other characters if set to true (recommended!)
+				dim = true,  -- dim all other characters if set to true (recommended!)
 			})
 		end,
 	})
@@ -113,6 +113,8 @@ return require("packer").startup(function(use)
 			require("toggleterm").setup()
 		end,
 	})
+	-- ## Buffer Line ##--
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 
 	-- ## WhichKey ##--
 	use({
@@ -150,6 +152,28 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+
+	--## Indent ## --
+	use({
+		"nmac427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup({
+				auto_cmd = true,   -- Set to false to disable automatic execution
+				override_editorconfig = false, -- Set to true to override settings set by .editorconfig
+				filetype_exclude = { -- A list of filetypes for which the auto command gets disabled
+					"netrw",
+					"tutor",
+				},
+				buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
+					"help",
+					"nofile",
+					"terminal",
+					"prompt",
+				},
+			})
+		end,
+	})
+
 	--## Comment ##--
 	use({
 		"numToStr/Comment.nvim",

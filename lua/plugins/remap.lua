@@ -1,3 +1,4 @@
+-- Some keymaps are configured in the which_key.lua file
 -- Setting the leader key as "space-key"
 vim.g.mapleader = " "
 
@@ -10,9 +11,7 @@ vim.g.mapleader = " "
 
 -- ########### NORMAL MODE ########### --
 
--- In "normal mode" if press [leaderkey] + [pv] will make the same action as [Ex]
 -- vim.keymap.set("n", "<leader>ee", vim.cmd.Ex) -- Explorer -- Disabled by Nvim Tree
-vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle)
 
 -- Pressing [leaderkey] + [vv] or [dd] will make a vertical os horizontal split
 vim.keymap.set("n", "<leader>vv", vim.cmd.vsplit) -- Vertical Split

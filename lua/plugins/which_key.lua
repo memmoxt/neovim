@@ -36,6 +36,7 @@ wk.register({
 			l = { "<cmd>KeylabStart<cr>", "Key-Lab" },
 			k = { "<cmd>VimBeGood<cr>", "Vim Be Good" },
 		},
+
 		td = {
 			name = "Gitsigns - Toggle Deleted",
 		},
@@ -49,13 +50,16 @@ wk.register({
 	},
 	["["] = { c = { name = "Prev Hunk" } },
 	["]"] = { c = { name = "Next Hunk" } },
+
 	-- NvimTree
 	["<leader>e"] = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" },
+
 	-- ToggleTerm
 	["<C-`>"] = { "<cmd>cd %:h<cr><cmd>ToggleTerm<cr>", "Toggle Terminal" },
 	-- Toggle terminal on the current buffer path, you need to exit to reset the opening path
 
 	-- Buffer Navigation
-	["<C-S-A-N>"] = {"<cmd>:bprevious<cr>", "Buffer Previous"},
-	["<C-S-A-O>"] = {"<cmd>:bnext<cr>", "Buffer Next"}
+	["<C-S-A-N>"] = { "<cmd>:bprevious<cr>", "Buffer Previous" },
+	["<C-S-A-O>"] = { "<cmd>:bnext<cr>", "Buffer Next" },
+	["<C-S-A-BS>"] = { "<cmd>:bd<cr>", "Buffer Delete" },
 })

@@ -10,5 +10,6 @@ require("bufferline").setup({
 				separator = true,
 			},
 		},
+        always_show_bufferline = false,
 	},
 })

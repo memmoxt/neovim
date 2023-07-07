@@ -15,18 +15,6 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
-	-- ## GITHUB NVIM THEME ##
-	use({
-		"projekt0n/github-nvim-theme",
-		config = function()
-			require("github-theme").setup({
-				-- ...
-			})
-
-			vim.cmd("colorscheme github_dark")
-		end,
-	})
-
 	-- ## TREESITTER ##
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
@@ -130,16 +118,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- ## Live Server ##--
+	-- ## GITHUB NVIM THEME ##
 	use({
-		"aurum77/live-server.nvim",
-		run = function()
-			require("live_server.util").install()
+		"projekt0n/github-nvim-theme",
+		config = function()
+			require("github-theme").setup({
+				-- ...
+			})
+
+			vim.cmd("colorscheme github_dark")
 		end,
-		cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
 	})
+
 	--## Games ##--
-	use("BooleanCube/keylab.nvim")
 	use("ThePrimeagen/vim-be-good")
 
 	--## Surround ##--
@@ -154,25 +145,25 @@ return require("packer").startup(function(use)
 	})
 
 	--## Indent ## --
-	use({
-		"nmac427/guess-indent.nvim",
-		config = function()
-			require("guess-indent").setup({
-				auto_cmd = true, -- Set to false to disable automatic execution
-				override_editorconfig = false, -- Set to true to override settings set by .editorconfig
-				filetype_exclude = { -- A list of filetypes for which the auto command gets disabled
-					"netrw",
-					"tutor",
-				},
-				buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
-					"help",
-					"nofile",
-					"terminal",
-					"prompt",
-				},
-			})
-		end,
-	})
+	-- use({
+	-- 	"nmac427/guess-indent.nvim",
+	-- 	config = function()
+	-- 		require("guess-indent").setup({
+	-- 			auto_cmd = true, -- Set to false to disable automatic execution
+	-- 			override_editorconfig = false, -- Set to true to override settings set by .editorconfig
+	-- 			filetype_exclude = { -- A list of filetypes for which the auto command gets disabled
+	-- 				"netrw",
+	-- 				"tutor",
+	-- 			},
+	-- 			buftype_exclude = { -- A list of buffer types for which the auto command gets disabled
+	-- 				"help",
+	-- 				"nofile",
+	-- 				"terminal",
+	-- 				"prompt",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- })
 
 	--## Comment ##--
 	use({
@@ -230,24 +221,6 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	-- Project NVIM --
-	use({
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("project_nvim").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-				sync_root_with_cwd = true,
-				respect_buf_cwd = true,
-				update_focused_file = {
-					enable = true,
-					update_root = true,
-				},
-			})
-		end,
-	})
 	-- ## Image Previewer ## --
 	use({ "edluffy/hologram.nvim" })
-
 end)

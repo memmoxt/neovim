@@ -1,5 +1,4 @@
 local wk = require("which-key")
-
 wk.register({
 	["<leader>"] = {
 		f = {
@@ -61,5 +60,5 @@ wk.register({
 	-- Buffer Navigation
 	["<C-S-A-N>"] = { "<cmd>:bprevious<cr>", "Buffer Previous" },
 	["<C-S-A-O>"] = { "<cmd>:bnext<cr>", "Buffer Next" },
-	["<C-S-A-BS>"] = { "<cmd>:bd<cr>", "Buffer Delete" },
+	["<C-S-A-BS>"] = { "<cmd>:bd!<cr>", "Buffer Delete" },
 })

@@ -33,7 +33,11 @@ null_ls.setup({
 			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
 		}),
 		diagnostics.alex.with({
-			filetypes = { "html", "markdown" },
+			filetypes = { "markdown" },
+		}),
+
+		diagnostics.markuplint.with({
+			filetypes = { "html" },
 		}),
 		--diagnostics.fish,
 		-- diagnostics.flake8.with({

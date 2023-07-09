@@ -10,7 +10,7 @@ return require("packer").startup(function(use)
 	-- ## TELESCOPE ##
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
+		tag = "0.1.2",
 		-- or                            , branch = '0.1.x',
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
@@ -134,15 +134,15 @@ return require("packer").startup(function(use)
 	use("ThePrimeagen/vim-be-good")
 
 	--## Surround ##--
-	use({
-		"kylechui/nvim-surround",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
-	})
+	-- use({
+	-- 	"kylechui/nvim-surround",
+	-- 	tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+	-- 	config = function()
+	-- 		require("nvim-surround").setup({
+	-- 			-- Configuration here, or leave empty to use defaults
+	-- 		})
+	-- 	end,
+	-- })
 
 	--## Indent ## --
 	-- use({
@@ -205,8 +205,18 @@ return require("packer").startup(function(use)
 		run = ":Neorg sync-parsers",
 		requires = "nvim-lua/plenary.nvim",
 	})
-	-- ## Display Color and Picker## --
+	-- ## Display Color and Picker ## --
 	use("uga-rosa/ccc.nvim")
+	use({
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
+	})
+	use("NvChad/nvim-colorizer.lua")
 
 	-- ## Dial ## --
 	use("monaqa/dial.nvim")

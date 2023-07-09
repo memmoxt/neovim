@@ -13,6 +13,7 @@
         -- Available modes for `mode`: foreground, background,  virtualtext
         mode = "virtualtext", -- Set the display mode.
         -- Available methods are false / true / "normal" / "lsp" / "both"
+        methods = "lsp",
         -- True is same as normal
         tailwind = true, -- Enable tailwind colors
         -- parsers can contain values used in |user_default_options|

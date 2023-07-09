@@ -22,6 +22,45 @@ lspconfig.cssls.setup({
 		},
 	},
 })
+
+lspconfig.tailwindcss.setup({
+
+	capabilities = capabilities,
+	cmd = { "tailwindcss-language-server", "--stdio" },
+	filetypes = {
+		"django-html",
+		"htmldjango",
+		"html",
+		"markdown",
+		"mdx",
+		"css",
+		"less",
+		"postcss",
+		"sass",
+		"scss",
+		"stylus",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+	},
+	settings = {
+		tailwindCSS = {
+			classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+			lint = {
+				cssConflict = "warning",
+				invalidApply = "error",
+				invalidConfigPath = "error",
+				invalidScreen = "error",
+				invalidTailwindDirective = "error",
+				invalidVariant = "error",
+				recommendedVariantOrder = "warning",
+			},
+			validate = true,
+		},
+	},
+})
+
 lspconfig.html.setup({
 	capabilities = capabilities,
 	cmd = { "vscode-html-language-server", "--stdio" },

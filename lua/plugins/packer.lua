@@ -218,6 +218,13 @@ return require("packer").startup(function(use)
 	})
 	use("NvChad/nvim-colorizer.lua")
 
+	-- ## Tailwind Sorter ##
+	use({
+		"laytan/tailwind-sorter.nvim",
+		requires = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+		run = "cd formatter && npm i && npm run build",
+	})
+
 	-- ## Dial ## --
 	use("monaqa/dial.nvim")
 

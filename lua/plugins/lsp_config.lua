@@ -32,17 +32,11 @@ lspconfig.tailwindcss.setup({
 		"htmldjango",
 		"html",
 		"markdown",
-		"mdx",
 		"css",
-		"less",
-		"postcss",
 		"sass",
 		"scss",
-		"stylus",
 		"javascript",
-		"javascriptreact",
 		"typescript",
-		"typescriptreact",
 	},
 	settings = {
 		tailwindCSS = {

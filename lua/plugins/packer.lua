@@ -66,7 +66,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- ## HIGHLIGHTS ## --
-	use("RRethy/vim-illuminate")
+	-- use("RRethy/vim-illuminate")
 	use("lukas-reineke/indent-blankline.nvim")
 
 	-- ## EYELINER ## --
@@ -232,5 +232,5 @@ return require("packer").startup(function(use)
 	})
 
 	-- ## Image Previewer ## --
-	use({ "edluffy/hologram.nvim" })
+	-- use({ "edluffy/hologram.nvim" })
 end)

@@ -9,8 +9,8 @@ ccc.setup({
 	-- Your preferred settings
 	-- Example: enable highlighter
 	highlighter = {
-		auto_enable = true,
-		lsp = true,
+		auto_enable = false,
+		lsp = false,
 
 		---@type string hex
 		default_color = "#000000",
@@ -123,10 +123,10 @@ ccc.setup({
 			["b"] = mapping.goto_prev,
 			["W"] = mapping.goto_tail,
 			["B"] = mapping.goto_head,
-			["<C-Right>"] = mapping.increase1,
+			["<Shift-Right>"] = mapping.increase1,
 			["d"] = mapping.increase5,
 			[","] = mapping.increase10,
-			["<C-Left>"] = mapping.decrease1,
+			["<Shift-Left>"] = mapping.decrease1,
 			["s"] = mapping.decrease5,
 			["m"] = mapping.decrease10,
 			["H"] = mapping.set0,

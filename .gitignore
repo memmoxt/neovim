@@ -1,0 +1,12 @@
+
+# ignore all logs
+*.log
+./lua/plugins/.luarc.json
+lazy-lock.json
+
+# ignore .bin folder under plugins
+./lua/plugins/.bin
+
+
+
+

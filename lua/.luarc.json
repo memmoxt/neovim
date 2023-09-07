@@ -1,0 +1,14 @@
+{
+    "workspace.checkThirdParty": false,
+    "workspace.library":[
+        "/home/memmoxt/.config/nvim",
+        "/home/memmoxt/.local/share/nvim/lazy/lazy.nvim",
+        "/home/memmoxt/.local/share/nvim/lazy/nvim-navic",
+        "/home/memmoxt/.local/share/nvim/lazy/mason-lspconfig.nvim",
+        "/home/memmoxt/.local/share/nvim/lazy/nvim-lspconfig",
+        "/home/memmoxt/.local/share/nvim/lazy/mason.nvim",
+        "/usr/share/nvim/runtime",
+        "/home/memmoxt/.local/state/nvim/lazy/readme",
+        "${3rd}/luassert/library"
+    ]
+}

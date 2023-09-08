@@ -17,7 +17,7 @@ return {
 
             ["<leader>"] = {
                 c = {
-                    name = "+Code",
+                    name = "+CODE",
                 },
 
                 f = {
@@ -25,7 +25,14 @@ return {
                 },
 
                 g = {
-                    name = "+Git",
+                    name = "+GIT",
+                },
+                
+                t = {
+                    name = "+TAB",
+                    m = {
+                        name = "Move Tab",
+                    },
                 },
 
                 z = {

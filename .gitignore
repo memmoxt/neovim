@@ -2,7 +2,7 @@
 # ignore all logs
 *.log
 lazy-lock.json
-/lua/.luarc.json
+.luarc.json
 /lua/plugins/.trash/
 
 

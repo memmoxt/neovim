@@ -15,9 +15,17 @@ vim.opt.shiftwidth = tab_indent
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
-vim.opt.wrap = false -- disable wrappin the text in the corner of the screen
+vim.opt.wrap = false -- disable wrapping the text in the corner of the screen
 vim.opt.breakindent = true
+
+--Miscellaneous 
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
 vim.opt.fillchars = {eob = ' '}
+vim.opt.showcmd = false
+vim.opt.showmode = false
+
 
 --Backup
 vim.opt.backup = false
@@ -32,7 +40,7 @@ vim.opt.scrolloff = 2
 -- Highlight option
 vim.opt.termguicolors = true
 
--- Popup menu max height, mainly for cmp
+-- Pop-up menu max height, mainly for cmp
 vim.opt.pumheight = 8
 --
 vim.opt.shell = "fish"

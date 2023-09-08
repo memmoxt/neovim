@@ -3,8 +3,7 @@
 *.log
 lazy-lock.json
 .luarc.json
-/lua/plugins/.trash/
-
+lua/plugins/bin/
 
 
 

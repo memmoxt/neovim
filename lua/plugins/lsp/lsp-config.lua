@@ -4,15 +4,22 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "lukas-reineke/lsp-format.nvim",
+        { "folke/neodev.nvim", opts = {} },
     },
     config = function()
+
+        -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+        require("neodev").setup({
+            -- add any options here, or leave empty to use the default settings
+        })
+
         -- import lspconfig plugin
         local lspconfig = require("lspconfig")
 
         -- import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-        local navbuddy = require("nvim-navbuddy")
+        -- local navbuddy = require("nvim-navbuddy")
 
 
         -- used to enable autocompletion (assign to every lsp server config)
@@ -177,6 +184,7 @@ return {
                             [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                             [vim.fn.stdpath("config") .. "/lua"] = true,
                         },
+                        checkThirdParty = false,
                     },
                 },
             },

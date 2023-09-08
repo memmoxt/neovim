@@ -1,22 +1,15 @@
 return {
     "rcarriga/nvim-notify",
     config = function()
-        return {
-            background_colour = "NotifyBackground",
-            fps = 30,
-            icons = {
-                DEBUG = "",
-                ERROR = "",
-                INFO = "",
-                TRACE = "✎",
-                WARN = ""
-            },
-            level = 2,
-            minimum_width = 50,
-            render = "default",
+        local nvim_notify = require("notify")
+        nvim_notify.setup {
+            -- Animation style
             stages = "fade_in_slide_out",
-            timeout = 5000,
-            top_down = true,
+            -- Default timeout for notifications
+            timeout = 1500,
+            background_colour = "#2E3440",
         }
+
+        vim.notify = nvim_notify
     end,
 }

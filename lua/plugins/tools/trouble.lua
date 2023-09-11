@@ -48,14 +48,14 @@ return {
 			desc = "TroubleToggle Loclist",
 		},
 
-		{
-			"gR",
-			function()
-				require("trouble").open("lsp_references")
-			end,
-			mode = "n",
-			desc = "Trouble LSP references",
-		},
+		-- {
+		-- 	"gR",
+		-- 	function()
+		-- 		require("trouble").open("lsp_references")
+		-- 	end,
+		-- 	mode = "n",
+		-- 	desc = "Trouble LSP references",
+		-- },
 	},
 	opts = {
 		-- your configuration comes here

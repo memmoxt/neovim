@@ -7,7 +7,6 @@ return {
         { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-
         -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
         require("neodev").setup({
             -- add any options here, or leave empty to use the default settings
@@ -114,7 +113,9 @@ return {
                 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
                 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
                 vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-                vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+                vim.keymap.set('n', 'gr', function()
+                    require("trouble").open("lsp_references")
+                end, opts)
                 vim.keymap.set('n', '<localleader>f', function()
                     vim.lsp.buf.format { async = true }
                 end, opts)
@@ -167,6 +168,7 @@ return {
         lspconfig["pyright"].setup({
             capabilities = capabilities,
         })
+
 
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({

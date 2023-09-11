@@ -19,11 +19,6 @@ vim.keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = " Quit all " })
 vim.keymap.set("n", "<leader>|", vim.cmd.vsplit, { desc = "Vertical Split" })  -- Vertical Split
 vim.keymap.set("n", "<leader>-", vim.cmd.split, { desc = "Horizontal Split" }) -- Horizontal Split
 
--- j and k Navigation with Centering
--- I usually navigate with arrow keys so , I'm assigning some diferent use case for k and j
-vim.keymap.set("n", "j", "jzz")
-vim.keymap.set("n", "k", "kzz")
-
 -- Split Screen Navigation --
 -- [Alt + Arrows] to move between Split Screens
 vim.keymap.set("n", "<A-Up>", "<C-w>k")    -- Up arrow
@@ -52,9 +47,7 @@ vim.keymap.set("n", "<PageDown>", "<C-d>zz")
 
 -- Scrolling
 vim.keymap.set("n", "<C-e>", "<C-e>") -- nothing is modified (it's just to remember)
-vim.keymap.set("n", "<C-y>", "<C-y>")
-
--- Search Terms Centralization
+vim.keymap.set("n", "<C-y>", "<C-y>") -- Search Terms Centralization
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 

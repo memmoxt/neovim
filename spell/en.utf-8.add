@@ -13,3 +13,10 @@ github
 memmoxt
 neovim
 cmp
+npm
+postcss
+TailwindCSS
+
+neodev
+lspconfig
+navbuddy

@@ -19,9 +19,8 @@ vim.opt.wrap = false -- disable wrapping the text in the corner of the screen
 vim.opt.breakindent = true
 
 --Miscellaneous 
-vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
-
+-- vim.opt.spelllang = 'en_us'
+-- vim.opt.spell = true
 vim.opt.fillchars = {eob = ' '}
 vim.opt.showcmd = false
 vim.opt.showmode = false

@@ -201,18 +201,28 @@ return {
             },
             yaml = { tab_width = 2 },
         }
+
+        --https://github.com/mattn/efm-langserver
         local prettier = {
             formatCommand = [[prettier --stdin-filepath ${INPUT} ${--tab-width:tab_width}]],
             formatStdin = true,
         }
+
+        local autopep8 = {
+            formatCommand = [[autopep8 -]],
+            formatStdin = true,
+        }
+
         require("lspconfig").efm.setup {
             on_attach = require("lsp-format").on_attach,
             init_options = { documentFormatting = true },
+            filetypes = { "python", "html" },
             settings = {
                 languages = {
                     typescript = { prettier },
                     yaml = { prettier },
                     html = { prettier },
+                    python = { autopep8 },
                 },
             },
         }

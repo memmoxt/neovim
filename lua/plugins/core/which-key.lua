@@ -27,7 +27,7 @@ return {
                 g = {
                     name = "+GIT",
                 },
-                
+
                 t = {
                     name = "+TAB",
                     m = {

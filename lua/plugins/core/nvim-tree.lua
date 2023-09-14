@@ -22,10 +22,10 @@ return {
 				relativenumber = false,
 				signcolumn = "yes",
 			},
-			respect_buf_cwd = true,
+			respect_buf_cwd = false,
 			update_focused_file = {
 				enable = true,
-				update_root = true,
+				update_root = false,
 			},
 		})
 		--set keymaps

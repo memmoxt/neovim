@@ -5,7 +5,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- Highlight the text line of the cursor
-vim.opt.cursorline = true
+vim.opt.cursorline = false 
 
 --Tab & Indent
 local tab_indent = 4

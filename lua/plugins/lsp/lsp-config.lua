@@ -3,7 +3,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
-        "lukas-reineke/lsp-format.nvim",
         { "folke/neodev.nvim", opts = {} },
     },
     config = function()
@@ -72,6 +71,7 @@ return {
                 c = {
                     name = "+Code",
                     a = "Code Action",
+                    r = "Inlay Hint",
                 },
 
                 D = "Type Definition",
@@ -113,6 +113,10 @@ return {
                 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
                 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
                 vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+                -- Inlay Hint Toggle keymap
+                if vim.lsp.inlay_hint then
+                    vim.keymap.set('n', '<leader>cr', function() vim.lsp.inlay_hint(0, nil) end)
+                end
                 vim.keymap.set('n', 'gr', function()
                     require("trouble").open("lsp_references")
                 end, opts)
@@ -121,6 +125,7 @@ return {
                 end, opts)
             end,
         })
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
         -- configure html server
         lspconfig["html"].setup({
@@ -129,6 +134,34 @@ return {
 
         -- configure typescript server with plugin
         lspconfig["tsserver"].setup({
+            -- config for inlay_hint:
+            -- https://github.com/typescript-language-server/typescript-language-server#inlay-hints-textdocumentinlayhint
+            -- from Elijah video: https://www.youtube.com/watch?v=DYaTzkw3zqQ
+            settings = {
+                javascript = {
+                    inlayHints = {
+                        includeInlayEnumMemberValueHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                    },
+                },
+                typescript = {
+                    inlayHints = {
+                        includeInlayEnumMemberValueHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                    },
+                },
+
+            },
             capabilities = capabilities,
         })
 
@@ -161,12 +194,21 @@ return {
         -- configure emmet language server
         lspconfig["emmet_ls"].setup({
             capabilities = capabilities,
-            filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+            filetypes = { "htmldjango", "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less",
+                "svelte" },
         })
 
         -- configure python server
         lspconfig["pyright"].setup({
             capabilities = capabilities,
+            settings = {
+                python = {
+                    analysis = {
+                        reportMissingImports = false,
+                        reportUndefinedVariable = false,
+                    }
+                }
+            }
         })
 
 
@@ -176,6 +218,7 @@ return {
             capabilities = capabilities,
             settings = { -- custom settings for lua
                 Lua = {
+                    hint = { enable = true },
                     -- make the language server recognize "vim" global
                     diagnostics = {
                         globals = { "vim" },
@@ -191,41 +234,6 @@ return {
                 },
             },
         })
-
-        -- LSP Format
-        require("lsp-format").setup {
-            typescript = {
-                tab_width = function()
-                    return vim.opt.shiftwidth:get()
-                end,
-            },
-            yaml = { tab_width = 2 },
-        }
-
-        --https://github.com/mattn/efm-langserver
-        local prettier = {
-            formatCommand = [[prettier --stdin-filepath ${INPUT} ${--tab-width:tab_width}]],
-            formatStdin = true,
-        }
-
-        local autopep8 = {
-            formatCommand = [[autopep8 -]],
-            formatStdin = true,
-        }
-
-        require("lspconfig").efm.setup {
-            on_attach = require("lsp-format").on_attach,
-            init_options = { documentFormatting = true },
-            filetypes = { "python", "html" },
-            settings = {
-                languages = {
-                    typescript = { prettier },
-                    yaml = { prettier },
-                    html = { prettier },
-                    python = { autopep8 },
-                },
-            },
-        }
     end,
 
 }

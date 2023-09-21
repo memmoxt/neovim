@@ -1,7 +1,7 @@
 return {
 	{
 		"barrett-ruth/live-server.nvim",
-		build = "yarn global add live-server",
+		build = "bun global add live-server",
 		config = true,
 		keys = {
             { "<leader>zl", "<cmd>LiveServerStart<CR>", desc = "Live-Server", mode = "n" },

@@ -1,42 +1,24 @@
 return {
     "jeetsukumaran/vim-indentwise",
+    event = "VeryLazy",
+    init = function()
+        vim.api.nvim_set_keymap('n', '<S-Left>',
+            [[:execute "normal \<Plug>(IndentWisePreviousLesserIndent)"<CR>]],
+            { noremap = true, silent = true, desc = "Previous Lesser Indent" })
+
+        vim.api.nvim_set_keymap('n', '<S-Right>',
+            [[:execute "normal \<Plug>(IndentWiseNextGreaterIndent)"<CR>]],
+            { noremap = true, silent = true, desc = "Next Greater Indent" })
+
+        vim.api.nvim_set_keymap('n', '<S-Up>',
+            [[:execute "normal \<Plug>(IndentWisePreviousEqualIndent)"<CR>]],
+            { noremap = true, silent = true, desc = "Previous Equal Indent" })
+
+        vim.api.nvim_set_keymap('n', '<S-Down>',
+            [[:execute "normal \<Plug>(IndentWiseNextEqualIndent)"<CR>]],
+            { noremap = true, silent = true, desc = "Next Equal Indent" })
+    end,
     keys = {
-        {
-            "<S-Left>",
-            function()
-                vim.api.nvim_set_keymap('n', '<S-Left>',
-                    [[:execute "normal \<Plug>(IndentWisePreviousLesserIndent)"<CR>]],
-                    { noremap = true, silent = true })
-            end,
-            desc = "Previous Lesser Indent",
-        },
-        {
-            "<S-Right>",
-            function()
-                vim.api.nvim_set_keymap('n', '<S-Right>',
-                    [[:execute "normal \<Plug>(IndentWiseNextGreaterIndent)"<CR>]],
-                    { noremap = true, silent = true })
-            end,
-            desc = "Next Lesser Indent",
-        },
-        {
-            "<S-Up>",
-            function()
-                vim.api.nvim_set_keymap('n', '<S-Up>',
-                    [[:execute "normal \<Plug>(IndentWisePreviousEqualIndent)"<CR>]],
-                    { noremap = true, silent = true })
-            end,
-            desc = "Previous Lesser Indent",
-        },
-        {
-            "<S-Down>",
-            function()
-                vim.api.nvim_set_keymap('n', '<S-Down>',
-                    [[:execute "normal \<Plug>(IndentWiseNextEqualIndent)"<CR>]],
-                    { noremap = true, silent = true })
-            end,
-            desc = "Previous Lesser Indent",
-        },
         {
             "[-",
             mode = { "n" },

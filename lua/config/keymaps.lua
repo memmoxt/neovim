@@ -27,17 +27,17 @@ vim.keymap.set("n", "<A-Right>", "<C-w>l") -- Right arrow
 vim.keymap.set("n", "<A-Left>", "<C-w>h")  -- Left arrow
 
 -- Resize window using <ctrl> arrow keys
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+-- vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+-- vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+-- vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+-- vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Resize Window with arrows --
 -- [Ctrl + n/e/i/o (same as my arrows keys)] to resize Split Screen Window
--- vim.keymap.set("n", "<C-A-e>", "<cmd>resize +2<CR>")
--- vim.keymap.set("n", "<C-A-i>", "<cmd>resize -2<CR>")
--- vim.keymap.set("n", "<C-A-n>", "<cmd>vertical resize +4<CR>")
--- vim.keymap.set("n", "<C-A-o>", "<cmd>vertical resize -4<CR>")
+vim.keymap.set("n", "<C-A-e>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
+vim.keymap.set("n", "<C-A-i>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
+vim.keymap.set("n", "<C-A-n>", "<cmd>vertical resize +4<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-A-o>", "<cmd>vertical resize -4<CR>", { desc = "Decrease window width" })
 
 -- Page-Up and Page-Down --
 -- making it a half-page jump
@@ -93,4 +93,3 @@ vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 -- ########### COMMAND MODE ########### --
 vim.keymap.set("c", "<Up>", "<C-p>")   -- to move UP between the Tab-Completion suggestions
 vim.keymap.set("c", "<Down>", "<C-n>") -- to move DOWN between the Tab-Completion suggestions
-

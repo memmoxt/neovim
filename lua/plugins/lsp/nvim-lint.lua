@@ -6,6 +6,7 @@ return {
             markdown = { 'markdownlint', },
             html = { 'djlint', },
             htmldjango = { 'djlint', },
+            python = { 'pylint', 'djlint', }
         }
     end,
 }

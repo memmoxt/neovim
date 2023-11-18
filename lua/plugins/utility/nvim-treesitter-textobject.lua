@@ -10,6 +10,7 @@ return {
                     lookahead = true,
 
                     -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects#built-in-textobjects
+                    -- to use the the commands below press "v" and then press the following keymaps
                     keymaps = {
                         -- You can use the capture groups defined in textobjects.scm
                         -- ["af"] = "@function.outer",

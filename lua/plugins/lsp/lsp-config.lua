@@ -200,17 +200,29 @@ return {
 
         -- configure python server
         lspconfig["pyright"].setup({
-            capabilities = capabilities,
-            settings = {
-                python = {
-                    analysis = {
-                        reportMissingImports = false,
-                        reportUndefinedVariable = false,
-                    }
-                }
-            }
+            -- settings = {
+            --     pyright = {
+            --         autoImportCompletion = true,
+            --     },
+            --     python = {
+            --         analysis = {
+            --             autoSearchPaths = true,
+            --             diagnosticMode = 'openFilesOnly',
+            --             useLibraryCodeForTypes = false,
+            --             typeCheckingMode = 'off', -- Disable type checking
+            --         },
+            --     },
+            -- },
+            capabilities = {
+                textDocument = {
+                    publishDiagnostics = {
+                        tagSupport = {
+                            valueSet = { 2 },
+                        },
+                    },
+                },
+            },
         })
-
 
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({

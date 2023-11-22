@@ -8,7 +8,8 @@ return {
     config = function()
         require("nvim-tree").setup {
             auto_reload_on_write = true,
-            respect_buf_cwd = true,
+            -- respect_buf_cwd = true,
+            sync_root_with_cwd = true,
             view = {
 
                 preserve_window_proportions = true,
@@ -18,7 +19,7 @@ return {
             },
             update_focused_file = {
                 enable = true,
-                update_root = true,
+                update_root = false,
                 ignore_list = {},
             },
         }

@@ -4,8 +4,8 @@ return {
 	keys = {
 		-- Open Terminal on the path that the current file is in
 		-- Need to close the terminal to reset and open in the new path
-		{ "<C-`>", "<cmd>cd %:h<cr><cmd>ToggleTerm<cr>", mode = "n", desc = "Toggle Terminal" }, -- Toggle Terminal on Normal mode
-		{ "<C-`>", "<cmd>ToggleTerm<cr>", mode = "t" }, -- Toggle Terminal on Terminal mode
+		{ "<C-A-`>", "<cmd>cd %:h<cr><cmd>ToggleTerm<cr>", mode = "n", desc = "Toggle Terminal" }, -- Toggle Terminal on Normal mode
+		{ "<C-A-`>", "<cmd>ToggleTerm<cr>", mode = "t" }, -- Toggle Terminal on Terminal mode
 		{ "<esc>", [[<C-\><C-n>]], mode = "t" }, -- Escape Terminal input mode
 	},
 	opts = {

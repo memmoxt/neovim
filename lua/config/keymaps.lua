@@ -20,11 +20,11 @@ vim.keymap.set("n", "<leader>|", vim.cmd.vsplit, { desc = "Vertical Split" })  -
 vim.keymap.set("n", "<leader>-", vim.cmd.split, { desc = "Horizontal Split" }) -- Horizontal Split
 
 -- Split Screen Navigation --
--- [Alt + Arrows] to move between Split Screens
-vim.keymap.set("n", "<A-Up>", "<C-w>k")    -- Up arrow
-vim.keymap.set("n", "<A-Down>", "<C-w>j")  -- Down arrow
-vim.keymap.set("n", "<A-Right>", "<C-w>l") -- Right arrow
-vim.keymap.set("n", "<A-Left>", "<C-w>h")  -- Left arrow
+-- [Ctrl + Shift + Arrows] to move between Split Screens
+vim.keymap.set("n", "<C-S-Up>", "<C-w>k")    -- Up arrow
+vim.keymap.set("n", "<C-S-Down>", "<C-w>j")  -- Down arrow
+vim.keymap.set("n", "<C-S-Right>", "<C-w>l") -- Right arrow
+vim.keymap.set("n", "<C-S-Left>", "<C-w>h")  -- Left arrow
 
 -- Resize window using <ctrl> arrow keys
 -- vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })

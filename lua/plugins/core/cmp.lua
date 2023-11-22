@@ -72,15 +72,15 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<Down>"] = cmp.mapping.close(),
                 ["<Up>"] = cmp.mapping.close(),
-                ["<C-Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<C-Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<A-Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<A-Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 -- ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 -- ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-                ["<C-e>"] = cmp.mapping.abort(),        -- close completion window
-                ["<C-CR>"] = cmp.mapping.confirm({ select = true }),
+                ["<A-b>"] = cmp.mapping.scroll_docs(-4),
+                ["<A-f>"] = cmp.mapping.scroll_docs(4),
+                ["<A-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+                ["<A-e>"] = cmp.mapping.abort(),        -- close completion window
+                ["<A-CR>"] = cmp.mapping.confirm({ select = true }),
             }),
             -- sources for autocompletion
             sources = cmp.config.sources({

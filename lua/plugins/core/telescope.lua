@@ -38,11 +38,12 @@ return {
 			desc = "Command History",
 		},
 		{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
-		{
-			"<leader>sd",
-			"<cmd>Telescope diagnostics bufnr=0<cr>",
-			desc = "Document diagnostics",
-		},
+        -- DISABLED FOR NVIM-POSSESSION KEYBIND
+		-- {
+		-- 	"<leader>sd",
+		-- 	"<cmd>Telescope diagnostics bufnr=0<cr>",
+		-- 	desc = "Document diagnostics",
+		-- },
 		{
 			"<leader>sD",
 			"<cmd>Telescope diagnostics<cr>",

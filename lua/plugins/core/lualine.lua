@@ -35,6 +35,14 @@ return {
                 --         return " " .. os.date("%R")
                 --     end,
                 -- },
+                lualine_z = {
+                    {
+                        require("nvim-possession").status,
+                        cond = function()
+                            return require("nvim-possession").status() ~= nil
+                        end,
+                    },
+                },
 
             },
             extensions = { "nvim-tree", "lazy" },

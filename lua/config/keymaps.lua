@@ -62,11 +62,11 @@ vim.keymap.set("n", "<leader>p", '"+p')
 --vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>")
 
 -- Buffer Navigation
-vim.keymap.set("n", "<C-S-A-N>", "<cmd>:bprevious<cr>", { desc = "Buffer Previous" })
-vim.keymap.set("n", "<C-S-A-O>", "<cmd>:bnext<cr>", { desc = "Buffer Next" })
-vim.keymap.set("n", "<C-S-A-BS>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" })
-vim.keymap.set("n", "<C-S-A-E>", "<cmd>:tabprevious<cr>", { desc = "Tab Previous" })
-vim.keymap.set("n", "<C-S-A-I>", "<cmd>:tabnext<cr>", { desc = "Tab Next" })
+vim.keymap.set("n", "<S-A-N>", "<cmd>:bprevious<cr>", { desc = "Buffer Previous" })
+vim.keymap.set("n", "<S-A-O>", "<cmd>:bnext<cr>", { desc = "Buffer Next" })
+vim.keymap.set("n", "<S-A-BS>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" })
+vim.keymap.set("n", "<S-A-E>", "<cmd>:tabprevious<cr>", { desc = "Tab Previous" })
+vim.keymap.set("n", "<S-A-I>", "<cmd>:tabnext<cr>", { desc = "Tab Next" })
 
 -- Move Up and Down with Auto-Indent (NORMAL MODE)
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

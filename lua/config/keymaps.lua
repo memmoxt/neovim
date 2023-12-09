@@ -8,6 +8,9 @@
 -- Save File
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- Toggle Spelling 
+vim.keymap.set("n", "<leader>cs","<cmd>set invspell<cr><esc>",{desc = "Toggle Spelling"} )
+
 -- ########### NORMAL MODE ########### --
 
 -- Quit All

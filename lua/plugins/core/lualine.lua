@@ -11,7 +11,14 @@ return {
                 disabled_filetypes = { statusline = { "dashboard", "alpha" } },
             },
             sections = {
-                lualine_a = { "mode" },
+                lualine_a = {
+                    {
+                        "mode",
+                        color = { fg = '#ffaa88', bg = 'grey', gui = 'italic,bold' },
+
+                    },
+
+                },
                 lualine_b = { "branch", "diff", "diagnostics" },
                 lualine_c = {
                     { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },

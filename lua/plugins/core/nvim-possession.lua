@@ -33,10 +33,17 @@ return {
     },
     config = function()
         require("nvim-possession").setup({
-            autoload = false, -- whether to autoload sessions in the cwd at startup
-            autosave = true, -- whether to autosave loaded sessions before quitting
+            sessions = {
+                sessions_path = vim.fn.stdpath("config") .. "/sessions/",
+                sessions_variable = "session",
+                sessions_icon = "📌",
+                sessions_prompt = "sessions:",
+            },
+
+            autoload = false,    -- whether to autoload sessions in the cwd at startup
+            autosave = true,     -- whether to autosave loaded sessions before quitting
             autoswitch = {
-                enable = false, -- whether to enable autoswitch
+                enable = false,  -- whether to enable autoswitch
                 exclude_ft = {}, -- list of filetypes to exclude from autoswitch
             },
 

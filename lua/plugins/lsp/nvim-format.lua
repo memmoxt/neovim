@@ -3,6 +3,13 @@ return {
     dependencies = { 'creativenull/efmls-configs-nvim', },
 
     config = function()
+        -- Ensure that efm-langserver is installed
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "elmls",
+            },
+        })
+
         -- LSP Format
         require("lsp-format").setup {
             typescript = {

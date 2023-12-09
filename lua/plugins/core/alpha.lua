@@ -38,12 +38,12 @@ return {
 
         dashboard.section.buttons.val = {
             dashboard.button("e", "  New File    ", "<cmd>enew<CR>"),
-            dashboard.button("f", "  Find File   ", "<cmd>Telescope find_files<CR>"),
+            dashboard.button("f", "󰈞  Find File   ", "<cmd>Telescope find_files<CR>"),
             dashboard.button("r", "  Find Text   ", "<cmd>Telescope live_grep<CR>"),
             dashboard.button("c", "  NVIM Config ", "<cmd>edit ~/.config/nvim/lua/config/lazy.lua<CR>"),
             dashboard.button("t", "  Telescope ", "<cmd>Telescope<CR>"),
             dashboard.button("l", "  Last Session ", "<cmd>lua require('persistence').load({last = true})<cr>"),
-            dashboard.button("q", "  Quit        ", "<cmd>qa<CR>"),
+            dashboard.button("q", "󰩈  Quit        ", "<cmd>qa<CR>"),
         }
 
         dashboard.section.footer.val = {

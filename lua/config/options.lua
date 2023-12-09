@@ -5,7 +5,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- Highlight the text line of the cursor
-vim.opt.cursorline = false 
+vim.opt.cursorline = false
 
 --Tab & Indent
 local tab_indent = 4
@@ -18,10 +18,10 @@ vim.opt.autoindent = true
 vim.opt.wrap = false -- disable wrapping the text in the corner of the screen
 vim.opt.breakindent = true
 
---Miscellaneous 
--- vim.opt.spelllang = 'en_us'
--- vim.opt.spell = true
-vim.opt.fillchars = {eob = ' '}
+-- Miscellaneous
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = false
+vim.opt.fillchars = { eob = ' ' }
 vim.opt.showcmd = false
 vim.opt.showmode = false
 
@@ -42,4 +42,4 @@ vim.opt.termguicolors = true
 -- Pop-up menu max height, mainly for cmp
 vim.opt.pumheight = 8
 --
-vim.opt.shell = "fish"
+vim.opt.shell = "zsh"

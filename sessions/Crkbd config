@@ -1,0 +1,103 @@
+let SessionLoad = 1
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let v:this_session=expand("<sfile>:p")
+silent only
+silent tabonly
+cd ~
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+let s:shortmess_save = &shortmess
+if &shortmess =~ 'A'
+  set shortmess=aoOA
+else
+  set shortmess=aoO
+endif
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/default_files/keymap.c
+badd +21 .config/nvim/lua/plugins/colorschemes/transparent.lua
+badd +90 .config/nvim/lua/plugins/tools/navbuddy.lua
+badd +1 .config/nvim/lua/plugins/core/cmp.lua
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/keymap.c
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/default_files/config.h
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/memmoxt_crkbd.json
+badd +12 notes/index.norg
+badd +63 notes/documents/Crkbd/crkbd_setup.norg
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/memmo_keymap.c
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/my2024keymap_crkbd.json
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/keymap.c
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/rules.mk
+badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/images/layer\ images/canvas_font.clip
+badd +2 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/rules.mk
+badd +130 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/config.h
+argglobal
+%argdel
+edit qmk_firmware/keyboards/crkbd/keymaps/memmoxt/keymap.c
+argglobal
+balt qmk_firmware/keyboards/crkbd/keymaps/memmoxt/default_files/config.h
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+1,19fold
+22,24fold
+43,57fold
+59,87fold
+91,93fold
+90,95fold
+101,107fold
+100,109fold
+115,121fold
+123,129fold
+131,137fold
+139,145fold
+147,153fold
+155,161fold
+163,169fold
+171,177fold
+179,185fold
+187,193fold
+198,200fold
+202,204fold
+206,208fold
+210,212fold
+214,216fold
+218,220fold
+222,224fold
+226,228fold
+230,232fold
+234,236fold
+238,240fold
+197,241fold
+112,242fold
+245,251fold
+244,253fold
+89,256fold
+let &fdl = &fdl
+let s:l = 124 - ((9 * winheight(0) + 26) / 52)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 124
+normal! 09|
+tabnext 1
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20
+let &shortmess = s:shortmess_save
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if filereadable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &g:so = s:so_save | let &g:siso = s:siso_save
+set hlsearch
+nohlsearch
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

@@ -17,7 +17,7 @@ badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/default_files/keymap.c
 badd +21 .config/nvim/lua/plugins/colorschemes/transparent.lua
 badd +90 .config/nvim/lua/plugins/tools/navbuddy.lua
 badd +1 .config/nvim/lua/plugins/core/cmp.lua
-badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/keymap.c
+badd +197 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/keymap.c
 badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/default_files/config.h
 badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/memmoxt_crkbd.json
 badd +12 notes/index.norg
@@ -28,12 +28,48 @@ badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/keymap.c
 badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/rules.mk
 badd +1 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/files/images/layer\ images/canvas_font.clip
 badd +2 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/rules.mk
-badd +130 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/config.h
+badd +77 qmk_firmware/keyboards/crkbd/keymaps/memmoxt/config.h
 argglobal
 %argdel
 edit qmk_firmware/keyboards/crkbd/keymaps/memmoxt/keymap.c
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 30 + 46) / 92)
+exe 'vert 2resize ' . ((&columns * 59 + 46) / 92)
+exe 'vert 3resize ' . ((&columns * 1 + 46) / 92)
 argglobal
-balt qmk_firmware/keyboards/crkbd/keymaps/memmoxt/default_files/config.h
+enew
+file NvimTree_1
+balt qmk_firmware/keyboards/crkbd/keymaps/memmoxt/keymap.c
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd ~/qmk_firmware/keyboards/crkbd/keymaps/memmoxt
+wincmd w
+argglobal
+balt ~/qmk_firmware/keyboards/crkbd/keymaps/memmoxt/config.h
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -45,12 +81,11 @@ setlocal fen
 silent! normal! zE
 1,19fold
 22,24fold
-43,57fold
-59,87fold
-91,93fold
-90,95fold
-101,107fold
-100,109fold
+83,85fold
+82,87fold
+93,99fold
+92,101fold
+107,113fold
 115,121fold
 123,129fold
 131,137fold
@@ -61,29 +96,74 @@ silent! normal! zE
 171,177fold
 179,185fold
 187,193fold
-198,200fold
-202,204fold
-206,208fold
-210,212fold
-214,216fold
-218,220fold
-222,224fold
-226,228fold
-230,232fold
-234,236fold
-238,240fold
-197,241fold
-112,242fold
-245,251fold
-244,253fold
-89,256fold
+197,199fold
+201,203fold
+205,207fold
+209,211fold
+213,215fold
+217,219fold
+221,223fold
+225,227fold
+229,231fold
+233,235fold
+237,239fold
+241,243fold
+196,244fold
+104,245fold
+248,254fold
+247,256fold
+81,259fold
 let &fdl = &fdl
-let s:l = 124 - ((9 * winheight(0) + 26) / 52)
+let s:l = 59 - ((2 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 124
-normal! 09|
+keepjumps 59
+normal! 0
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/notes/documents/Crkbd/crkbd_setup.norg", ":p")) | buffer ~/notes/documents/Crkbd/crkbd_setup.norg | else | edit ~/notes/documents/Crkbd/crkbd_setup.norg | endif
+if &buftype ==# 'terminal'
+  silent file ~/notes/documents/Crkbd/crkbd_setup.norg
+endif
+balt ~/notes/index.norg
+setlocal fdm=manual
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+1,9fold
+16,19fold
+14,19fold
+13,19fold
+21,24fold
+20,24fold
+29,32fold
+33,48fold
+49,54fold
+55,65fold
+25,65fold
+11,65fold
+let &fdl = &fdl
+11
+normal! zo
+25
+normal! zo
+let s:l = 65 - ((37 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 65
+normal! 06|
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 30 + 46) / 92)
+exe 'vert 2resize ' . ((&columns * 59 + 46) / 92)
+exe 'vert 3resize ' . ((&columns * 1 + 46) / 92)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -91,6 +171,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

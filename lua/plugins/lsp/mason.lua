@@ -9,6 +9,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
                 "lua_ls",
+                "autopep8",
                 "rust_analyzer",
                 "tailwindcss",
                 "emmet_ls",

@@ -36,8 +36,10 @@ vim.opt.incsearch = true
 -- Scroll
 vim.opt.scrolloff = 2
 
+
 -- Highlight option
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
 
 -- Pop-up menu max height, mainly for cmp
 vim.opt.pumheight = 8

@@ -8,6 +8,9 @@ return {
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+                "tsserver",
+                "svelte",
+                "cssls",
                 "lua_ls",
                 "autopep8",
                 "rust_analyzer",

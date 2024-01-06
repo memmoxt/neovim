@@ -13,14 +13,25 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +21 lua/plugins/colorschemes/transparent.lua
-badd +90 ~/.config/nvim/lua/plugins/tools/navbuddy.lua
-badd +1 ~/.config/nvim/lua/plugins/core/cmp.lua
+badd +4 ~/Documents/Training/django/project/app/urls.py
+badd +1 ~/Documents/Training/django/project/app/tests.py
+badd +1 ~/Documents/Training/django/project/app/models.py
+badd +1 ~/Documents/Training/django/project/app/apps.py
+badd +1 lua/plugins/colorschemes/transparent.lua
+badd +90 lua/plugins/tools/navbuddy.lua
+badd +2 lua/plugins/core/cmp.lua
+badd +198 lua/plugins/lsp/lsp-config.lua
+badd +20 lua/plugins/lsp/mason.lua
+badd +25 lua/plugins/colorschemes/catppuccin.lua
+badd +1 lua/plugins/core/alpha
+badd +1 lua/plugins/core/alpha.lua
+badd +1 lua/config/options.lua
+badd +10 lua/plugins/utility/nvim-spider.lua
+badd +1 lua/config/lazy.lua
 argglobal
 %argdel
-edit ~/.config/nvim/lua/plugins/core/cmp.lua
+edit lua/config/options.lua
 argglobal
-balt ~/.config/nvim/lua/plugins/tools/navbuddy.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -30,38 +41,19 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-4,12fold
-29,57fold
-62,64fold
-61,65fold
-66,71fold
-72,84fold
-86,92fold
-101,104fold
-98,105fold
-112,118fold
-130,134fold
-137,141fold
-126,142fold
-123,143fold
-96,147fold
-94,148fold
-60,149fold
-13,150fold
-1,151fold
 let &fdl = &fdl
-let s:l = 72 - ((31 * winheight(0) + 25) / 51)
+let s:l = 8 - ((7 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 72
-normal! 025|
+keepjumps 8
+normal! 09|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20
+set winheight=1 winwidth=1
 let &shortmess = s:shortmess_save
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
@@ -69,6 +61,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

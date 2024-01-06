@@ -27,7 +27,7 @@ return {
 
         --   פּ ﯟ   some other good icons
         local kind_icons = {
-            Text = "󰾿 ",
+            Text = "󰊄",
             Method = "m",
             Function = "󰡱",
             Constructor = "",
@@ -40,7 +40,7 @@ return {
             Unit = "󰑭",
             Value = "",
             Enum = "",
-            Keyword = "",
+            Keyword = "",
             Snippet = "",
             Color = "",
             File = "",
@@ -54,6 +54,7 @@ return {
             TypeParameter = "",
             Tailwindcss = "󱏿",
             Emmet = "",
+            Svelte = "",
         }
 
         vim.opt.completeopt = "menu,menuone,noinsert"
@@ -130,6 +131,7 @@ return {
                             local lsp_menu_mapping = {
                                 ["tailwindcss"] = kind_icons.Tailwindcss,
                                 ["emmet_ls"] = kind_icons.Emmet,
+                                ["svelte"] = kind_icons.Svelte,
                                 -- Add more mappings for other lspserver_name values as needed
                             }
 

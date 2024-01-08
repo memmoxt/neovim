@@ -125,6 +125,7 @@ return {
                 end, opts)
             end,
         })
+
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
         -- configure html server
@@ -200,19 +201,19 @@ return {
 
         -- configure python server
         lspconfig["pyright"].setup({
-            -- settings = {
-            --     pyright = {
-            --         autoImportCompletion = true,
-            --     },
-            --     python = {
-            --         analysis = {
-            --             autoSearchPaths = true,
-            --             diagnosticMode = 'openFilesOnly',
-            --             useLibraryCodeForTypes = false,
-            --             typeCheckingMode = 'off', -- Disable type checking
-            --         },
-            --     },
-            -- },
+            settings = {
+                pyright = {
+                    autoImportCompletion = true,
+                },
+                python = {
+                    analysis = {
+                        autoSearchPaths = true,
+                        diagnosticMode = 'openFilesOnly',
+                        useLibraryCodeForTypes = false,
+                        typeCheckingMode = 'off', -- Disable type checking
+                    },
+                },
+            },
             capabilities = {
                 textDocument = {
                     publishDiagnostics = {

@@ -45,7 +45,7 @@ return {
                     typescript = { prettier },
                     yaml = { prettier },
                     html = { prettier },
-                    htmldjango = { djlint, prettier },
+                    htmldjango = { djlint },
                     python = { autopep8 },
                     lua = {
                         require('efmls-configs.formatters.stylua'),

@@ -28,14 +28,14 @@ return {
             formatStdin = true,
 
         }
+        -- local prettier = require('efmls-configs.formatters.prettier')
 
         -- local autopep8 = {
         --     formatCommand = [[autopep8 -]],
         --     formatStdin = true,
         -- }
         local autopep8 = require('efmls-configs.formatters.autopep8')
-        local djlint = require('efmls-configs.linters.djlint')
-        -- local prettier = require('efmls-configs.formatters.prettier')
+        -- local djlint = require('efmls-configs.linters.djlint')
         require("lspconfig").efm.setup {
             on_attach = require("lsp-format").on_attach,
             init_options = { documentFormatting = true },
@@ -43,9 +43,10 @@ return {
             settings = {
                 languages = {
                     typescript = { prettier },
+                    javascript = { prettier },
                     yaml = { prettier },
                     html = { prettier },
-                    htmldjango = { djlint },
+                    -- htmldjango = { djlint },
                     python = { autopep8 },
                     lua = {
                         require('efmls-configs.formatters.stylua'),

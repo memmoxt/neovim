@@ -4,6 +4,7 @@
 lazy-lock.json
 .luarc.json
 lua/plugins/bin/
+sessions/
 
 
 

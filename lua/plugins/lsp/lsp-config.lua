@@ -115,8 +115,7 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
                 -- Inlay Hint Toggle keymap
                 if vim.lsp.inlay_hint then
-                    vim.keymap.set('n', '<leader>cr', function() vim.lsp.inlay_hint(0, nil) end)
-                end
+                    vim.keymap.set('n', '<leader>cr', function() vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled()) end)               end
                 vim.keymap.set('n', 'gr', function()
                     require("trouble").open("lsp_references")
                 end, opts)

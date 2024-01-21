@@ -47,7 +47,7 @@ return {
             Reference = "",
             Folder = "",
             EnumMember = "",
-            Constant = "",
+            Constant = "",
             Struct = "",
             Event = "",
             Operator = "",
@@ -55,6 +55,8 @@ return {
             Tailwindcss = "󱏿",
             Emmet = "",
             Svelte = "",
+            CSS = "",
+            TypeScript = "󰛦",
         }
 
         vim.opt.completeopt = "menu,menuone,noinsert"
@@ -132,6 +134,7 @@ return {
                                 ["tailwindcss"] = kind_icons.Tailwindcss,
                                 ["emmet_ls"] = kind_icons.Emmet,
                                 ["svelte"] = kind_icons.Svelte,
+                                ["cssls"] = kind_icons.CSS,
                                 -- Add more mappings for other lspserver_name values as needed
                             }
 

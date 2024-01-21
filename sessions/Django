@@ -33,44 +33,12 @@ badd +1 my_project/app/urls.py
 badd +1 project/project/urls.py
 badd +26 project/app/views.py
 badd +1 /tasks/quick.norg
-badd +3 my_project/app/templates/app/challenge.html
-badd +34 project/project/settings.py
 badd +34 my_project/project/settings.py
 argglobal
 %argdel
-edit my_project/app/templates/app/challenge.html
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe 'vert 1resize ' . ((&columns * 30 + 96) / 192)
-exe 'vert 2resize ' . ((&columns * 161 + 96) / 192)
+edit /tasks/quick.norg
 argglobal
-enew
-file NvimTree_1
-balt my_project/app/templates/app/challenge.html
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=99
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
-argglobal
+balt project/app/views.py
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -80,19 +48,13 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-3,7fold
-8,13fold
 let &fdl = &fdl
-let s:l = 3 - ((2 * winheight(0) + 20) / 40)
+let s:l = 1 - ((0 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3
-normal! 03|
-wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 30 + 96) / 192)
-exe 'vert 2resize ' . ((&columns * 161 + 96) / 192)
+keepjumps 1
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -100,8 +62,6 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=1
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

@@ -14,6 +14,17 @@ return {
         -- import lspconfig plugin
         local lspconfig = require("lspconfig")
 
+        -- enable borders for lspconfig hover
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+            vim.lsp.handlers.hover, {
+                -- Use a sharp border with `FloatBorder` highlights
+                -- border = "single",
+                border = "rounded",
+                -- add the title in hover float window
+                -- title = "hover"
+            }
+        )
+
         -- import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -115,7 +126,9 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
                 -- Inlay Hint Toggle keymap
                 if vim.lsp.inlay_hint then
-                    vim.keymap.set('n', '<leader>cr', function() vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled()) end)               end
+                    vim.keymap.set('n', '<leader>cr',
+                        function() vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled()) end)
+                end
                 vim.keymap.set('n', 'gr', function()
                     require("trouble").open("lsp_references")
                 end, opts)
@@ -165,6 +178,7 @@ return {
             capabilities = capabilities,
         })
 
+
         -- configure css server
         lspconfig["cssls"].setup({
             capabilities = capabilities,
@@ -173,6 +187,29 @@ return {
         -- configure tailwindcss server
         lspconfig["tailwindcss"].setup({
             capabilities = capabilities,
+            filetypes = { "svelte", "html", "typescript", "javascript", "markdown" },
+
+            root_pattern =
+            {
+                'tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts',
+                'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts', 'package.json',
+                'node_modules', '.git' },
+
+            settings = {
+                tailwindCSS = {
+                    classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+                    lint = {
+                        cssConflict = "warning",
+                        invalidApply = "error",
+                        invalidConfigPath = "error",
+                        invalidScreen = "error",
+                        invalidTailwindDirective = "error",
+                        invalidVariant = "error",
+                        recommendedVariantOrder = "warning"
+                    },
+                    validate = true
+                }
+            },
         })
 
         -- configure svelte server

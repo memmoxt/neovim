@@ -1,5 +1,6 @@
 return {
     -- Tutorial: https://www.youtube.com/watch?v=_faghtBKQfc
+    -- shorcuts reference: https://github.com/ziontee113/deliberate.nvim/blob/master/lua/deliberate/hydra.lua
     "ziontee113/deliberate.nvim",
     dependencies = {
         {

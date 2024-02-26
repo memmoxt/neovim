@@ -8,8 +8,8 @@
 -- Save File
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
--- Toggle Spelling 
-vim.keymap.set("n", "<leader>cs","<cmd>set invspell<cr><esc>",{desc = "Toggle Spelling"} )
+-- Toggle Spelling
+vim.keymap.set("n", "<leader>cs", "<cmd>set invspell<cr><esc>", { desc = "Toggle Spelling" })
 
 -- ########### NORMAL MODE ########### --
 
@@ -68,7 +68,7 @@ vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("n", "<S-A-N>", "<cmd>:bprevious<cr>", { desc = "Buffer Previous" })
 vim.keymap.set("n", "<S-A-O>", "<cmd>:bnext<cr>", { desc = "Buffer Next" })
 vim.keymap.set("n", "<S-A-BS>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" }) -- does not work in tmux
-vim.keymap.set("n", "<S-A-,>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" }) -- alternative for tmux
+vim.keymap.set("n", "<S-A-K>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" })  -- alternative for tmux
 vim.keymap.set("n", "<S-A-E>", "<cmd>:tabprevious<cr>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<S-A-I>", "<cmd>:tabnext<cr>", { desc = "Tab Next" })
 
@@ -93,6 +93,7 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move up" })
 -- Move Up and Down with Auto-Indent (INSERT MODE)
 vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+vim.keymap.set("i", "ć", "ç",{desc = "Covert cedilha"})
 
 -- ########### COMMAND MODE ########### --
 vim.keymap.set("c", "<Up>", "<C-p>")   -- to move UP between the Tab-Completion suggestions

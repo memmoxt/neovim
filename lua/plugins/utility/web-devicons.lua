@@ -39,6 +39,12 @@ return {
 					color = "#38bdf8",
 					name = "Tailwind",
 				},
+
+                [".prettierrc"] = {
+					icon = "󰊅",
+					color = "#f7d162",
+					name = "Prettier",
+				},
 			},
 			-- same as `override` but specifically for overrides by extension
 			-- takes effect when `strict` is true

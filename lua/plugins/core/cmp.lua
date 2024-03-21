@@ -57,6 +57,7 @@ return {
             Svelte = "",
             CSS = "",
             TypeScript = "󰛦",
+            Lua = "󰢱",
         }
 
         vim.opt.completeopt = "menu,menuone,noinsert"
@@ -135,6 +136,7 @@ return {
                                 ["emmet_ls"] = kind_icons.Emmet,
                                 ["svelte"] = kind_icons.Svelte,
                                 ["cssls"] = kind_icons.CSS,
+                                ["lua_ls"] = kind_icons.Lua,
                                 -- Add more mappings for other lspserver_name values as needed
                             }
 

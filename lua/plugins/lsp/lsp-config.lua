@@ -147,6 +147,7 @@ return {
 
         -- configure typescript server with plugin
         lspconfig["tsserver"].setup({
+
             -- config for inlay_hint:
             -- https://github.com/typescript-language-server/typescript-language-server#inlay-hints-textdocumentinlayhint
             -- from Elijah video: https://www.youtube.com/watch?v=DYaTzkw3zqQ

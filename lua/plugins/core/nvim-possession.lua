@@ -36,7 +36,7 @@ return {
             sessions = {
                 sessions_path = vim.fn.stdpath("config") .. "/sessions/",
                 sessions_variable = "session",
-                sessions_icon = "📌",
+                sessions_icon = "",
                 sessions_prompt = "sessions:",
             },
 

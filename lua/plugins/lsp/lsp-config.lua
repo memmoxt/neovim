@@ -183,6 +183,7 @@ return {
         -- configure css server
         lspconfig["cssls"].setup({
             capabilities = capabilities,
+            filetypes = { "css", "postcss" },
         })
 
         -- configure tailwindcss server

@@ -14,14 +14,14 @@ return {
             term_colors = false,            -- sets terminal colors (e.g. `g:terminal_color_0`)
             dim_inactive = {
                 enabled = false,           -- dims the background color of inactive window
-                shade = "dark",
+                shade = "dark",             -- 'dark' , 'light'
                 percentage = 0.05,         -- percentage of the shade to apply to the inactive window
             },
             no_italic = false,             -- Force no italic
             no_bold = false,               -- Force no bold
             no_underline = false,          -- Force no underline
             styles = {                     -- Handles the styles of general hi groups (see `:h highlight-args`):
-                comments = { "italic" },   -- Change the style of comments
+                comments = {"italic"},             -- Change the style of comments
                 conditionals = {},
                 loops = {},
                 functions = {},
@@ -31,7 +31,7 @@ return {
                 numbers = {},
                 booleans = {},
                 properties = {},
-                types = {},
+                types = {"italic"},
                 operators = {},
             },
             color_overrides = {

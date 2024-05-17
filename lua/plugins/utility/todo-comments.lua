@@ -66,8 +66,12 @@ return {
             SCRIPT = { icon = "󰅩 ", color = "warning", alt = { "JAVASCRIPT", "TYPESCRIPT", "LUA", "CSS", "SCSS", "CODE", "CUSTOM" } },
 
             -- ** HTML NOTES ** --
-            HTML = { icon = " ", color = "info", alt = { "HEADING", "HERO", "FOOTER", "NAV", "NAVIGATION", "SVG", } },
-
+            HTML = { icon = " ", color = "info", alt = {"HEADING","HERO"} },
+            HEAD = { icon = "󰛼", color = "info", alt = {} },
+            BODY = { icon = "󰛺", color = "info", alt = {} },
+            FOOTER = { icon = "󰛻", color = "info", alt = {} },
+            LAYOUT = { icon = "", color = "error", alt = { "FLEX", "FLEXBOX", "GRID", "GRIDBOX" } },
+            BUTTON = {icon = "󱊨", color = "warning"}
         },
         gui_style = {
             fg = "NONE",       -- The gui style to use for the fg highlight group.

@@ -13,6 +13,9 @@ vim.keymap.set("n", "<leader>cs", "<cmd>set invspell<cr><esc>", { desc = "Toggle
 
 -- ########### NORMAL MODE ########### --
 
+-- Go one line up on the first character on that line
+vim.keymap.set({"n"}, "_", "k^", {desc="Move up to first Char"})
+
 -- Quit All
 vim.keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = " Quit all " })
 

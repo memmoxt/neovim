@@ -26,3 +26,4 @@ return {
         vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Open NvimTree" })
     end,
 }
+

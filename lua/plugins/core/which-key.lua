@@ -16,6 +16,10 @@ return {
             },
 
             ["<leader>"] = {
+                ["<leader>"] = {
+                    name = "Source",
+                    s = { "<cmd>source ~/.config/nvim/init.lua<cr>", "Source Init.lua" },
+                },
                 c = {
                     name = "+CODE",
                 },

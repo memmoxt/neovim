@@ -63,7 +63,9 @@ return {
             PART_4 = { icon = "󰎭 ", color = "hint" },
             PART_5 = { icon = "󰎱 ", color = "hint" },
 
-            SCRIPT = { icon = "󰅩 ", color = "warning", alt = { "JAVASCRIPT", "TYPESCRIPT", "LUA", "CSS", "SCSS", "CODE", "CUSTOM" } },
+            SCRIPT = { icon = "󰅩 ", color = "warning" },
+            JAVASCRIPT = {icon="󰌞", color = "warning" ,alt={"js_functions"}},
+            TYPESCRIPT = {icon="󰛦", color = "info" , alt={"ts_functions"}},
 
             -- ** HTML NOTES ** --
             HTML = { icon = " ", color = "info", alt = {"HEADING","HERO"} },

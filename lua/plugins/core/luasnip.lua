@@ -2,9 +2,65 @@ return {
     "L3MON4D3/LuaSnip", -- snippet engine
     -- Youtube tutorial: https://www.youtube.com/watch?v=FmHhonPjvvA
     config = function()
+        -- set keybinds for both INSERT and VISUAL.
+        vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
+        vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
+        vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
+        vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
+
+
         local ls = require "luasnip"
         local s = ls.snippet
+        local sn = ls.snippet_node
         local t = ls.text_node
+        local i = ls.insert_node
+        local extras = require("luasnip.extras")
+        local rep = extras.rep
+
+        -- Move to the next item within the snippet
+        -- COMMAND => CTRL + e
+        vim.keymap.set({ "i", "s" }, "<c-down>", function()
+            if ls.expand_or_jumpable() then
+                ls.expand_or_jump()
+            end
+        end, { silent = true, desc = "Go to next item whithin the snippet" })
+
+        -- Move to the previous item within the snippet
+        -- COMMAND => CTRL + i
+        vim.keymap.set({ "i", "s" }, "<c-up>", function()
+            if ls.jumpable(-1) then
+                ls.jump(-1)
+            end
+        end, { silent = true, desc = "Go to previous item whithin the snippet" })
+
+        -- Svelte/CSS snippets
+        ls.add_snippets("svelte", {
+            s("--script-ts", {
+                t('<script lang="ts">'),
+                t({ "", "\t" }), i(0),
+                t({ "", "</script>" }),
+            }),
+
+            s("--style-scss", {
+                t('<style lang="scss">'),
+                t({ "", "\t" }),
+                t('@import "$lib/tailwindColors"'),
+                t({ "", "\t" }), i(0),
+                t({ "", "</style>" }),
+            }),
+
+            -- CSS
+            s("--all-border-sides", {
+                t('border-top:'), t(" "), i(1, "solid"), t(" "), i(2, "size"), t(" "), i(3, "color"), t(";"),
+                t({ "", "" }),
+                t('border-right:'), t(" "), rep(1, "solid"), t(" "), rep(2, "size"), t(" "), rep(3, "color"), t(";"),
+                t({ "", "" }),
+                t('border-bottom:'), t(" "), rep(1, "solid"), t(" "), rep(2, "size"), t(" "), rep(3, "color"), t(";"),
+                t({ "", "" }),
+                t('border-left:'), t(" "), rep(1, "solid"), t(" "), rep(2, "size"), t(" "), rep(3, "color"), t(";"),
+            }),
+        })
+
 
         -- Define a table with Tailwind color names and their hex values
         local tailwind_colors = {
@@ -293,21 +349,190 @@ return {
             ["rose-800"] = "#9f1239",
             ["rose-900"] = "#881337",
             ["rose-950"] = "#4c0519",
+
+            -- In-between Colors
+            ["slate-150"] = "#EAEFF5",
+            ["slate-250"] = "#D7DFE9",
+            ["slate-350"] = "#B0BCCD",
+            ["slate-450"] = "#7C8CA2",
+            ["slate-550"] = "#56657A",
+            ["slate-650"] = "#3D4B5F",
+            ["slate-750"] = "#293548",
+            ["slate-850"] = "#172033",
+            ["gray-150"] = "#ECEEF1",
+            ["gray-250"] = "#DBDEE3",
+            ["gray-350"] = "#B7BCC5",
+            ["gray-450"] = "#848B98",
+            ["gray-550"] = "#5B6472",
+            ["gray-650"] = "#414B5A",
+            ["gray-750"] = "#2B3544",
+            ["gray-850"] = "#18212F",
+            ["zinc-150"] = "#ECECEE",
+            ["zinc-250"] = "#DCDCE0",
+            ["zinc-350"] = "#BBBBC1",
+            ["zinc-450"] = "#898992",
+            ["zinc-550"] = "#62626B",
+            ["zinc-650"] = "#494951",
+            ["zinc-750"] = "#333338",
+            ["zinc-850"] = "#202023",
+            ["neutral-150"] = "#EDEDED",
+            ["neutral-250"] = "#DDDDDD",
+            ["neutral-350"] = "#BCBCBC",
+            ["neutral-450"] = "#8B8B8B",
+            ["neutral-550"] = "#636363",
+            ["neutral-650"] = "#494949",
+            ["neutral-750"] = "#333333",
+            ["neutral-850"] = "#1F1F1F",
+            ["stone-150"] = "#EEEDEC",
+            ["stone-250"] = "#DFDCDB",
+            ["stone-350"] = "#BFBBB8",
+            ["stone-450"] = "#908A85",
+            ["stone-550"] = "#68625D",
+            ["stone-650"] = "#4E4A45",
+            ["stone-750"] = "#373330",
+            ["stone-850"] = "#231F1E",
+            ["red-150"] = "#FED6D6",
+            ["red-250"] = "#FDB8B8",
+            ["red-350"] = "#FA8B8B",
+            ["red-450"] = "#F66666",
+            ["red-550"] = "#E63535",
+            ["red-650"] = "#CB2121",
+            ["red-750"] = "#A91C1C",
+            ["red-850"] = "#8C1C1C",
+            ["orange-150"] = "#FFE2C0",
+            ["orange-250"] = "#FEC98F",
+            ["orange-350"] = "#FCA658",
+            ["orange-450"] = "#FA8329",
+            ["orange-550"] = "#F26611",
+            ["orange-650"] = "#D64D0C",
+            ["orange-750"] = "#AE3B0F",
+            ["orange-850"] = "#8B3112",
+            ["amber-150"] = "#FEEDA9",
+            ["amber-250"] = "#FDDD6C",
+            ["amber-350"] = "#FCC939",
+            ["amber-450"] = "#F8AF18",
+            ["amber-550"] = "#E78B09",
+            ["amber-650"] = "#C76508",
+            ["amber-750"] = "#A34A0C",
+            ["amber-850"] = "#853B0F",
+            ["yellow-150"] = "#FEF5A7",
+            ["yellow-250"] = "#FEE869",
+            ["yellow-350"] = "#FCD62E",
+            ["yellow-450"] = "#F2C00F",
+            ["yellow-550"] = "#DA9F06",
+            ["yellow-650"] = "#B67606",
+            ["yellow-750"] = "#93580B",
+            ["yellow-850"] = "#7B4610",
+            ["lime-150"] = "#E3FBB4",
+            ["lime-250"] = "#CCF681",
+            ["lime-350"] = "#B1EC4D",
+            ["lime-450"] = "#94D926",
+            ["lime-550"] = "#75B812",
+            ["lime-650"] = "#59900E",
+            ["lime-750"] = "#466F11",
+            ["lime-850"] = "#3B5B13",
+            ["green-150"] = "#CCFADC",
+            ["green-350"] = "#68E796",
+            ["green-450"] = "#36D26F",
+            ["green-550"] = "#1CB454",
+            ["green-650"] = "#169244",
+            ["green-750"] = "#167339",
+            ["green-850"] = "#155C31",
+            ["emerald-150"] = "#BCF7DB",
+            ["emerald-250"] = "#8BEDC4",
+            ["emerald-350"] = "#51DDA8",
+            ["emerald-450"] = "#22C68D",
+            ["emerald-550"] = "#0BA875",
+            ["emerald-650"] = "#058760",
+            ["emerald-750"] = "#056C4F",
+            ["emerald-850"] = "#065741",
+            ["teal-150"] = "#B3F9EB",
+            ["teal-250"] = "#7CF0DC",
+            ["teal-350"] = "#46DFCA",
+            ["teal-450"] = "#21C6B3",
+            ["teal-550"] = "#11A697",
+            ["teal-650"] = "#0E857B",
+            ["teal-750"] = "#106A64",
+            ["teal-850"] = "#125652",
+            ["cyan-150"] = "#BAF7FD",
+            ["cyan-250"] = "#86EEFB",
+            ["cyan-350"] = "#45DEF4",
+            ["cyan-450"] = "#14C5E1",
+            ["cyan-550"] = "#07A4C3",
+            ["cyan-650"] = "#0B83A1",
+            ["cyan-750"] = "#126983",
+            ["cyan-850"] = "#16566C",
+            ["sky-150"] = "#CDECFE",
+            ["sky-250"] = "#9CDDFD",
+            ["sky-350"] = "#5BC8FA",
+            ["sky-450"] = "#23B1F1",
+            ["sky-550"] = "#0895D8",
+            ["sky-650"] = "#0377B4",
+            ["sky-750"] = "#056193",
+            ["sky-850"] = "#0A527A",
+            ["blue-150"] = "#CDE3FE",
+            ["blue-250"] = "#A9D0FE",
+            ["blue-350"] = "#7AB5FC",
+            ["blue-450"] = "#4E94F8",
+            ["blue-550"] = "#3073F1",
+            ["blue-650"] = "#2159E2",
+            ["blue-750"] = "#1E47C4",
+            ["blue-850"] = "#1E3D9D",
+            ["indigo-150"] = "#D4DDFF",
+            ["indigo-250"] = "#B6C3FD",
+            ["indigo-350"] = "#93A0FA",
+            ["indigo-450"] = "#7279F5",
+            ["indigo-550"] = "#5956EB",
+            ["indigo-650"] = "#493FD8",
+            ["indigo-750"] = "#3D34B7",
+            ["indigo-850"] = "#342F92",
+            ["violet-150"] = "#E5E0FE",
+            ["violet-250"] = "#D1C6FE",
+            ["violet-350"] = "#B6A0FC",
+            ["violet-450"] = "#9974F8",
+            ["violet-550"] = "#7C4BF2",
+            ["violet-650"] = "#6531E3",
+            ["violet-750"] = "#5C25C8",
+            ["violet-850"] = "#541FA6",
+            ["purple-150"] = "#EEDFFF",
+            ["purple-250"] = "#E1C5FF",
+            ["purple-350"] = "#CC9CFD",
+            ["purple-450"] = "#B46DFA",
+            ["purple-550"] = "#9E44F1",
+            ["purple-650"] = "#812BDC",
+            ["purple-750"] = "#6D22BB",
+            ["purple-850"] = "#621F98",
+            ["fuchsia-150"] = "#F8DCFF",
+            ["fuchsia-250"] = "#F3BEFD",
+            ["fuchsia-350"] = "#EC92FB",
+            ["fuchsia-450"] = "#E160F4",
+            ["fuchsia-550"] = "#CD36E1",
+            ["fuchsia-650"] = "#B121C1",
+            ["fuchsia-750"] = "#941B9F",
+            ["fuchsia-850"] = "#7B1A82",
+            ["pink-150"] = "#FCDBEE",
+            ["pink-250"] = "#FABCDE",
+            ["pink-350"] = "#F78DC5",
+            ["pink-450"] = "#F05DA8",
+            ["pink-550"] = "#E43888",
+            ["pink-650"] = "#CD206A",
+            ["pink-750"] = "#AE1855",
+            ["pink-850"] = "#901848",
+            ["rose-150"] = "#FFD9DD",
+            ["rose-250"] = "#FEB9C1",
+            ["rose-350"] = "#FC8B9A",
+            ["rose-450"] = "#F85872",
+            ["rose-550"] = "#EB2E53",
+            ["rose-650"] = "#D01842",
+            ["rose-750"] = "#AF123B",
+            ["rose-850"] = "#941338"
         }
 
         -- Create snippets for each color in the table
         for color_name, hex_value in pairs(tailwind_colors) do
             ls.add_snippets("all", {
-                s("$tw-" .. color_name, {
-                    t(hex_value)
-                })
+                s("--" .. color_name, { t(hex_value) })
             })
         end
-
-        -- set keybinds for both INSERT and VISUAL.
-        vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
-        vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
-        vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
-        vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
     end,
 }

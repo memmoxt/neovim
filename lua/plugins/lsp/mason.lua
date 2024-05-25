@@ -15,7 +15,7 @@ return {
                 "autopep8",
                 "rust_analyzer",
                 "tailwindcss",
-                "emmet_ls",
+                -- "emmet_ls",
                 "html",
                 "pyright",
             },

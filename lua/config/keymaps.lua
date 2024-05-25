@@ -1,3 +1,4 @@
+
 -- NORMAL MODE		     = 	"n"
 -- INSERT MODE 		     = 	"i"
 -- VISUAL MODE		     = 	"v"

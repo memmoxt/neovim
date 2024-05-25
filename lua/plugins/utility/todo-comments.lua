@@ -12,6 +12,7 @@ return {
             mode = "n",
             desc = "Next TODO comment",
         },
+
         {
             "[t",
             function()
@@ -20,6 +21,7 @@ return {
             mode = "n",
             desc = "Previous TODO comment",
         },
+
         {
             "]T",
             function()
@@ -49,6 +51,7 @@ return {
                 alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
                 -- signs = false, -- configure signs for some keywords individually
             },
+
             TODO = { icon = " ", color = "info" },
             HACK = { icon = " ", color = "warning" },
             WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
@@ -57,6 +60,10 @@ return {
             TEST = { icon = "󱈤 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 
             --** CUSTOM NOTES: **--
+            ART = {icon = " ", color="hint"},
+            CSS_ART = {icon="󰃣", color="hint"},
+            KEYFRAMES = {icon="󰙮 ",color="warning", alt={"KEYFRAME"}},
+
             PART_1 = { icon = "󰎤 ", color = "hint" },
             PART_2 = { icon = "󰎧 ", color = "hint" },
             PART_3 = { icon = "󰎪 ", color = "hint" },

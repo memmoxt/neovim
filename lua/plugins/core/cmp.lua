@@ -18,21 +18,6 @@ return {
         -- load vs-code like snippets from plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
 
-        -- Move to the next item within the snippet
-        -- COMMAND => CTRL + e
-        vim.keymap.set({ "i", "s" }, "<c-down>", function()
-            if luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            end
-        end, { silent = true, desc = "Go to next item whithin the snippet" })
-
-        -- Move to the previous item within the snippet
-        -- COMMAND => CTRL + i
-        vim.keymap.set({ "i", "s" }, "<c-up>", function()
-            if luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            end
-        end, { silent = true, desc = "Go to previous item whithin the snippet" })
 
         -- to change the color of the kind-icons
         -- vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = "#d5c4a1"})--this changes the Text icon
@@ -113,6 +98,7 @@ return {
             formatting = {
                 fields = { "kind", "abbr", "menu" },
                 format = function(entry, item)
+                    
                     -- Colored Icons for CMP with tailwindcss
                     if item.kind == "Color" then
                         item = require("cmp-tailwind-colors").format(entry, item)

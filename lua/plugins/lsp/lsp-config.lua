@@ -234,7 +234,7 @@ return {
         lspconfig["emmet_ls"].setup({
             capabilities = capabilities,
             filetypes = { "htmldjango", "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less",
-                "svelte" },
+            },
         })
 
         -- configure python server

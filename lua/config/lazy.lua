@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { import = "plugins.colorschemes" },
     { import = "plugins.core" },
-    -- { import = "plugins.extra" },
+    { import = "plugins.extra" },
     { import = "plugins.git" },
     { import = "plugins.lsp" },
     { import = "plugins.tools" },

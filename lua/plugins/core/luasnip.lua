@@ -11,7 +11,6 @@ return {
 
         local ls = require "luasnip"
         local s = ls.snippet
-        local sn = ls.snippet_node
         local t = ls.text_node
         local i = ls.insert_node
         local extras = require("luasnip.extras")
@@ -44,23 +43,36 @@ return {
             s("--style-scss", {
                 t('<style lang="scss">'),
                 t({ "", "\t" }),
-                t('@import "$lib/tailwindColors"'),
+                t('@import "$lib/tailwindColors";'),
                 t({ "", "\t" }), i(0),
                 t({ "", "</style>" }),
             }),
 
             -- CSS
             s("--all-border-sides", {
-                t('border-top:'), t(" "), i(1, "solid"), t(" "), i(2, "size"), t(" "), i(3, "color"), t(";"),
+                t('border-top:'), t(" "), i(1, "size"), t(" "), i(2, "solid"), t(" "), i(3, "color"), t(";"),
                 t({ "", "" }),
-                t('border-right:'), t(" "), rep(1, "solid"), t(" "), rep(2, "size"), t(" "), rep(3, "color"), t(";"),
+                t('border-right:'), t(" "), rep(1, "size"), t(" "), rep(2, "solid"), t(" "), rep(3, "color"), t(";"),
                 t({ "", "" }),
-                t('border-bottom:'), t(" "), rep(1, "solid"), t(" "), rep(2, "size"), t(" "), rep(3, "color"), t(";"),
+                t('border-bottom:'), t(" "), rep(1, "size"), t(" "), rep(2, "solid"), t(" "), rep(3, "color"), t(";"),
                 t({ "", "" }),
-                t('border-left:'), t(" "), rep(1, "solid"), t(" "), rep(2, "size"), t(" "), rep(3, "color"), t(";"),
+                t('border-left:'), t(" "), rep(1, "size"), t(" "), rep(2, "solid"), t(" "), rep(3, "color"), t(";"),
             }),
         })
 
+        -- SVG
+        ls.add_snippets("all", {
+            -- <line x1="number" y1="number" x2="number" y2="number" class="stroke-red-500"> </line>
+            s("--svg-line", {
+                t('<line '),
+                t('x1='), t('"'), i(1, "number"), t('" '),
+                t('y1='), t('"'), i(2, "number"), t('" '),
+                t('x2='), t('"'), i(3, "number"), t('" '),
+                t('y2='), t('"'), i(4, "number"), t('" '),
+                t('class='),t('"stroke-'),i(5,"red"),t('-'),i(6,'500'),t('">'),
+                t('</line>')
+            })
+        })
 
         -- Define a table with Tailwind color names and their hex values
         local tailwind_colors = {

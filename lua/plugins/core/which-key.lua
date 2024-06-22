@@ -41,9 +41,10 @@ return {
 
                 z = {
                     name = "UTILITIES",
-                    p = { "<cmd>CccPick<cr>", "Pick Color" },
                     c = { "<cmd>CccConvert<cr>", "Convert" },
                     h = { "<cmd>CccHighlighterToggle<cr>", "Toggle Highlighter" },
+                    p = { "<cmd>CccPick<cr>", "Pick Color" },
+                    s = {"<cmd>Screenkey<cr>", "Screenkey Toggle"},
                 },
             },
 

@@ -28,6 +28,7 @@ return {
             -- same as `override` but specifically for overrides by filename
             -- takes effect when `strict` is true
             override_by_filename = {
+
                 [".gitignore"] = {
                     icon = "",
                     color = "#f1502f",
@@ -66,6 +67,11 @@ return {
                     icon = "",
                     color = "#81e043",
                     name = "Log",
+                },
+                ["rpy"] = {
+                    icon = "󱔎",
+                    color = "#f59e0b",
+                    name = "Renpy",
                 },
 
             },

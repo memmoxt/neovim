@@ -58,19 +58,73 @@ return {
                 t({ "", "" }),
                 t('border-left:'), t(" "), rep(1, "size"), t(" "), rep(2, "solid"), t(" "), rep(3, "color"), t(";"),
             }),
+
+            --TAILWIND UTILITY
+
+            -- stroke-color-500 stroke-[1px] fill-color
+            s("--stroke&fill", {
+                t('stroke-'), i(1, 'color'), t('-'), i(2, 'number'), t(' stroke-['), i(3, 'number '), t('px]'),
+                t(' fill-'), i(4, 'color')
+            }),
+
         })
 
         -- SVG
         ls.add_snippets("all", {
-            -- <line x1="number" y1="number" x2="number" y2="number" class="stroke-red-500"> </line>
+
+            -- <line x1="number" y1="number" x2="number" y2="number" class="stroke-color-number stroke-[1px]"> </line>
             s("--svg-line", {
                 t('<line '),
                 t('x1='), t('"'), i(1, "number"), t('" '),
                 t('y1='), t('"'), i(2, "number"), t('" '),
                 t('x2='), t('"'), i(3, "number"), t('" '),
                 t('y2='), t('"'), i(4, "number"), t('" '),
-                t('class='),t('"stroke-'),i(5,"red"),t('-'),i(6,'500'),t('">'),
+                t('class='), t('"stroke-'), i(5, "color"), t('-'), i(6, 'number'), t(' '),
+                t('stroke-['), i(7, '1'), t('px]"'), t('>'),
                 t('</line>')
+            }),
+
+            -- <rect x="number" width="" height="" y="number" rx="0" ry="0" class="stroke-color-number"></rect>
+            s("--svg-rect", {
+                t('<rect '), t('x="'), i(1, 'number'), t('" y="'), i(2, 'number'),t('"'),
+                t(' width="'), i(3, '0'), t('"'),
+                t(' height="'), i(4, '0'), t('"'),
+                t(' rx="'), i(5, '0'), t('"'),
+                t(' ry="'), i(6, '0'), t('"'),
+                t(' class="'), i(7, ''), t('"></rect>')
+            }),
+
+            -- <circle cx="50" cy="50" r="number" class=""></circle>
+            s("--svg-circle", {
+                t('<circle cx="'), i(1, '50'), t('" cy="'), i(2, '50'), t('" r="'), i(3, 'number'), t('" class="'),
+                i(4, ''), t('"></circle>')
+            }),
+
+            -- <ellipse cx="50" cy="50" rx="number" ry="number" class=""></ellipse>
+            s("--svg-ellipse", {
+                t('<ellipse cx="'), i(1, '50'), t('" cy="'), i(2, '50'), t('" rx="'), i(3, 'number'), t('" ry="'),
+                i(4, 'number'), t('" class="'), i(5, ''), t('"></ellipse>')
+            }),
+
+            -- <polygon points="" class=""></polygon>
+            s("--svg-polygon", {
+                t('<polygon points="'), i(1, ''), t('" class="'), i(2, ''), t('"></polygon>')
+            }),
+
+            -- <polyline points="" class=""></polyline>
+            s("--svg-polyline", {
+                t('<polyline points="'), i(1, ''), t('" class="'), i(2, ''), t('"></polyline>')
+            }),
+
+            -- <path d="" class=""></path>
+            s("--svg-path", {
+                t('<path d="'), i(1, ''), t('" class="'), i(2, ''), t('"></path>')
+            }),
+
+            -- <use xlink:href="#id_name" x="0" y="0" width="" height="" class=""></use>
+            s("--svg-use", {
+                t('<use xlink:href="#'), i(1, 'id_name'), t('" x="'), i(2, '0'), t('" y="'), i(3, '0'), t('"'),
+                t(' width="'), i(4, ''), t('" height="'), i(5, ''), t('" class="'), i(6, ''), t('"></use>')
             })
         })
 

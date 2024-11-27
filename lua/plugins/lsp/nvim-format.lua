@@ -39,7 +39,7 @@ return {
         require("lspconfig").efm.setup {
             on_attach = require("lsp-format").on_attach,
             init_options = { documentFormatting = true },
-            filetypes = { "python", "html", "htmldjango" },
+            filetypes = { "renpy","python", "html", "htmldjango" },
             settings = {
                 languages = {
                     typescript = { prettier },
@@ -48,6 +48,7 @@ return {
                     html = { prettier },
                     -- htmldjango = { djlint },
                     python = { autopep8 },
+                    renpy = { autopep8 },
                     lua = {
                         require('efmls-configs.formatters.stylua'),
                     },

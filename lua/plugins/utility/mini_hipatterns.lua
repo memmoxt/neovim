@@ -8,7 +8,6 @@ return {
             todo  = { pattern = 'TODO', group = 'MiniHipatternsTodo' },
             note  = { pattern = 'NOTE', group = 'MiniHipatternsNote' },
 
-            part  = { pattern = 'PART', group = 'MiniHipatternsFixme' },
             art   = { pattern = 'ART', group = 'MiniHipatternsNote' }
         }
     }

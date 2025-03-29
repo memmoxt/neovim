@@ -52,56 +52,37 @@ return {
         -- after the language server attaches to the current buffer
 
         local wk = require("which-key")
-        wk.register({
-            g = {
-                D = "Declaration",
-                d = "Definition",
-                i = "Implementation",
-                r = "References",
-            },
+        wk.add(
+            {
+                { "<C-k>", group = "Signature Help" },
+                { "<leader>D", desc = "Type Definition" },
 
-            K = {
-                name = "Buf.Hover"
-            },
+                { "<leader>c", group = "Code" },
+                { "<leader>ca", desc = "Code Action" },
+                { "<leader>cr", desc = "Inlay Hint" },
 
-            ["["] = {
-                name = "Previous",
-                d = "Previous Diagnostic",
-            },
+                { "<leader>r", group = "Rename" },
+                { "<leader>rn", desc = "Rename all references under cursor", icon = { icon = "  ", color = "red" } },
 
-            ["]"] = {
-                name = "Next",
-                d = "Next Diagnostic",
-            },
+                -- { "<leader>w", group = "Workspace" },
+                { "<leader>wa", desc = "Add to Workspace Folder" },
+                { "<leader>wl", desc = "List Workspace Folders" },
+                { "<leader>wr", desc = "Rename Workspace" },
+                { "K", desc = "Buf.Hover" },
+                { "[", group = "Previous" },
+                { "[d", desc = "Previous Diagnostic" },
+                { "]", group = "Next" },
+                { "]d", desc = "Next Diagnostic" },
 
-            ["<C-k>"] = {
-                name = "Signature Help",
-            },
+                { "g", group = "Go to", icon={icon="󰑮 " ,color="azure"} },
+                { "gD", desc = "Declaration" },
+                { "gd", desc = "Definition" },
+                { "gi", desc = "Implementation" },
+                { "gr", desc = "References" },
 
-            ["<leader>"] = {
-                c = {
-                    name = "+Code",
-                    a = "Code Action",
-                    r = "Inlay Hint",
-                },
+            }
+        )
 
-                D = "Type Definition",
-
-
-                r = {
-                    name = "Rename",
-                    n = " Rename all references under cursor ",
-                },
-
-                w = {
-                    name = "+Workspace",
-                    r = "Rename Workspace",
-                    a = "Add to Workspace Folder",
-                    l = "List Workspace Folders",
-                },
-
-            },
-        })
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
             callback = function(ev)
@@ -146,7 +127,7 @@ return {
         })
 
         -- configure typescript server with plugin
-        lspconfig["tsserver"].setup({
+        lspconfig["ts_ls"].setup({
 
             -- config for inlay_hint:
             -- https://github.com/typescript-language-server/typescript-language-server#inlay-hints-textdocumentinlayhint

@@ -27,7 +27,7 @@ return {
             lsp = {
                 show_problem_count = false, -- Display number of diagnostics problems
                 severity = 1,               -- 1 = Error, 2 = Warning, 3 = Info, 4 = Hint
-                scope = 'workspace',        -- buffer or workspace
+                scope = 'buffer',        -- buffer or workspace
             },
             idle = {
                 show_idle = true, -- Enable idle status
@@ -37,21 +37,26 @@ return {
                 tooltip = '💤', -- Text to display when hovering over the idle image
             },
             text = {
-                viewing = 'Viewing {}',                    -- Text to display when viewing a readonly file
-                editing = 'Editing {}',                    -- Text to display when editing a file
-                file_browser = 'Browsing files in {}',     -- Text to display when browsing files (Empty string to disable)
-                plugin_manager = 'Managing plugins in {}', -- Text to display when managing plugins (Empty string to disable)
-                workspace = 'In {}',                       -- Text to display when in a workspace (Empty string to disable)
+                viewing = function(opts)
+                    return string.format('Viewing %s - %s:%s', opts.filename, opts.cursor_line, opts.cursor_char)
+                end,
+                -- Text to display when viewing a readonly file
+                editing = function(opts)
+                    return string.format('Editing %s - %s:%s', opts.filename, opts.cursor_line, opts.cursor_char)
+                end,
+                file_browser = 'Browsing files in Oil.nvim', -- Text to display when browsing files (Empty string to disable)
+                plugin_manager = 'Managing plugins in Lazy', -- Text to display when managing plugins (Empty string to disable)
+                workspace = '',                              -- Text to display when in a workspace (Empty string to disable)
             },
             buttons = {
                 {
-                    label = 'View repository', -- Text displayed on the button
-                    url = 'git',               -- URL where the button leads to ('git' = Git repository URL)
+                    label = 'View repository',          -- Text displayed on the button
+                    url = 'https://github.com/memmoxt', -- URL where the button leads to ('git' = Git repository URL)
                 },
-                -- {
-                --   label = 'View plugin',
-                --   url = 'https://github.com/vyfor/cord.nvim',
-                -- }
+                {
+                    label = 'View plugin',
+                    url = 'https://github.com/vyfor/cord.nvim',
+                }
             },
         })
     end,

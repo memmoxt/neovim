@@ -53,7 +53,6 @@ return {
             ["CTRL"] = "Ctrl",
             ["ALT"] = "Alt",
             ["SUPER"] = "󰘳",
-            ["SHIFT"] = "Shift",
         },
     }
 }

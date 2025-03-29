@@ -12,7 +12,7 @@ return {
     },
     keys = {
         {
-            "<C-S-A-Y>",
+            "<leader>wy",
             "<cmd>:Navbuddy<CR>",
             desc = "Navbuddy",
             mode = "n",

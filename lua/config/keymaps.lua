@@ -1,4 +1,3 @@
-
 -- NORMAL MODE		     = 	"n"
 -- INSERT MODE 		     = 	"i"
 -- VISUAL MODE		     = 	"v"
@@ -10,12 +9,12 @@
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- Toggle Spelling
-vim.keymap.set("n", "<leader>cc", "<cmd>set invspell<cr><esc>", { desc = "Toggle Spelling" })
+-- vim.keymap.set("n", "<leader>cc", "<cmd>set invspell<cr><esc>", { desc = "Toggle Spelling" })
 
 -- ########### NORMAL MODE ########### --
 
 -- Go one line up on the first character on that line
-vim.keymap.set({"n"}, "_", "k^", {desc="Move up to first Char"})
+vim.keymap.set({ "n" }, "_", "k^", { desc = "Move up to first Char" })
 
 -- Quit All
 vim.keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = " Quit all " })
@@ -66,13 +65,14 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<leader>p", '"+p')
 
 -- Formatting
+--
 --vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>")
 
 -- Buffer Navigation
 vim.keymap.set("n", "<S-A-N>", "<cmd>:bprevious<cr>", { desc = "Buffer Previous" })
 vim.keymap.set("n", "<S-A-O>", "<cmd>:bnext<cr>", { desc = "Buffer Next" })
-vim.keymap.set("n", "<S-A-BS>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" }) -- does not work in tmux
-vim.keymap.set("n", "<S-A-K>", "<cmd>:bp! | bd # <cr>", { desc = "Buffer Delete" })  -- alternative for tmux
+vim.keymap.set("n", "<S-A-BS>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" })        -- does not work in tmux
+vim.keymap.set("n", "<S-A-K>", "<cmd>:bp! | bd # <cr>", { desc = "Buffer Delete" }) -- alternative for tmux
 vim.keymap.set("n", "<S-A-E>", "<cmd>:tabprevious<cr>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<S-A-I>", "<cmd>:tabnext<cr>", { desc = "Tab Next" })
 
@@ -97,8 +97,11 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move up" })
 -- Move Up and Down with Auto-Indent (INSERT MODE)
 vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-vim.keymap.set("i", "ć", "ç",{desc = "Covert cedilha"})
+vim.keymap.set("i", "ć", "ç", { desc = "Covert cedilha" })
 
 -- ########### COMMAND MODE ########### --
 vim.keymap.set("c", "<Up>", "<C-p>")   -- to move UP between the Tab-Completion suggestions
 vim.keymap.set("c", "<Down>", "<C-n>") -- to move DOWN between the Tab-Completion suggestions
+
+-- ########### TERM MODE ########### --
+vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { noremap = true, silent = true }) -- to move out the terminal

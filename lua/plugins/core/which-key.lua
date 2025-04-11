@@ -1,105 +1,68 @@
-return {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-
+return {                -- Useful plugin to show you pending keybinds.
+    'folke/which-key.nvim',
+    event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
     opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-    },
+        -- delay between pressing a key and opening which-key (milliseconds)
+        -- this setting is independent of vim.opt.timeoutlen
+        delay = 0,
+        icons = {
+            -- set icon mappings to true if you have a Nerd Font
+            mappings = vim.g.have_nerd_font,
+            -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
+            -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
+            keys = vim.g.have_nerd_font and {} or {
+                Up = '<Up> ',
+                Down = '<Down> ',
+                Left = '<Left> ',
+                Right = '<Right> ',
+                C = '<C-…> ',
+                M = '<M-…> ',
+                D = '<D-…> ',
+                S = '<S-…> ',
+                CR = '<CR> ',
+                Esc = '<Esc> ',
+                ScrollWheelDown = '<ScrollWheelDown> ',
+                ScrollWheelUp = '<ScrollWheelUp> ',
+                NL = '<NL> ',
+                BS = '<BS> ',
+                Space = '<Space> ',
+                Tab = '<Tab> ',
+                F1 = '<F1>',
+                F2 = '<F2>',
+                F3 = '<F3>',
+                F4 = '<F4>',
+                F5 = '<F5>',
+                F6 = '<F6>',
+                F7 = '<F7>',
+                F8 = '<F8>',
+                F9 = '<F9>',
+                F10 = '<F10>',
+                F11 = '<F11>',
+                F12 = '<F12>',
+            },
+        },
 
-    --## colors for icos available: "azure","blue","cyan","green","grey","orange","purple","red","yellow"
+        -- Document existing key chains
+        spec = {
+            -- colors for icos available: "azure","blue","cyan","green","grey","orange","purple","red","yellow"
+            { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+            { '<leader>d', group = '[D]ocument' },
+            { '<leader>f', group = '[F]ind' },
+            { '<leader>r', group = '[R]ename' },
+            { '<leader>s', group = '[S]earch', icon = { icon = " ", color = "green" } },
+            { '<leader>w', group = '[W]orkspace' },
+            { '<leader>t', group = '[T]abs', icon = { icon = " ", color = "blue" } },
+            { '<leader>g', group = '[G]it', icon = { icon = " ", color = "orange" } },
+            { '<leader>u', group = '[U]I toggles' },
+            { '<leader>x', group = 'Trouble', icon= {icon = "", color="red"} },
+            { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
 
-    keys = {
-        {
-            "<leader>?",
-            function()
-                require("which-key").show({ global = false })
-            end,
-            desc = "Buffer Local Keymaps (which-key)",
+            -- Add your custom bindings here
+            { 'z', group = 'Fold' },
+            { '<leader>cc', '<cmd>lua vim.lsp.buf.format{ async = true }<cr>', desc = 'Format Code', icon = { icon = "󰝕", color = "blue" } },
+            { '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<cr>', desc = 'Rename Reference', icon = { icon = "", color = "blue" } },
+            {'<leader>uS', '<cmd>Screenkey<cr>', desc = 'Toggle Screenkey'},
         },
 
     },
-
-    init = function()
-        local wk = require("which-key")
-        wk.add(
-            {
-                { "<leader>f",  group = "file" }, -- group
-                { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
-                --{ "<leader>fb", function() print("hello") end,   desc = "Foobar" },
-                { "<leader>fn", desc = "New File" },
-                { "<leader>f1", hidden = true },                                      -- hide this keymap
-                { "<leader>w",  proxy = "<c-w>",                 group = "windows" }, -- proxy to window mappings
-                {
-                    "<leader>b",
-                    group = "buffers",
-                    expand = function()
-                        return require("which-key.extras").expand.buf()
-                    end
-                },
-                {
-                    -- Nested mappings are allowed and can be added in any order
-                    -- Most attributes can be inherited or overridden on any level
-                    -- There's no limit to the depth of nesting
-                    mode = { "n", "v" },                          -- NORMAL and VISUAL mode
-                    { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
-                },
-
-                -- ## Memmo custom keys and group names
-                { "z", group = "Fold" },
-
-                -- <leader>
-                {
-                    { "<leader>t", group = "Tab", icon = { icon = "󱏂 ", color = "blue" } },
-                    { "<leader>tm", group = "Move Tab", icon = { icon = "󰓪  ", color = "blue" } },
-                },
-
-                { "<leader>w", group = "Window", icon = { icon = "󰖯", color = "blue" } },
-
-                { "<leader>g", group = "Git", icon = { icon = " ", color = "orange" } },
-
-                {
-                    { "<leader>z", group = "Utilities", icon = { icon = "󱁤 ", color = "azure" } },
-                    { "<leader>zn", icon = { icon = " ", color = "blue" } },
-                    { "<leader>zx", icon = { icon = "󰨭 ", color = "green" } },
-                    { "<leader>za", "<cmd>Screenkey<cr>", desc = "Screenkey Toggle", icon = { icon = "  ", color = "green" } },
-                    {
-                        { "<leader>zc", group = "Colors", icon = { icon = " ", color = "yellow" } },
-                        { "<leader>zcc", "<cmd>CccConvert<cr>", desc = "Convert Color", icon = { icon = "󰯍 ", color = "yellow" } },
-                        { "<leader>zcd", "<cmd>CccPick<cr>", desc = "Pick Color", icon = { icon = "󰈊 ", color = "yellow" } },
-                        { "<leader>zcx", "<cmd>ColorizerToggle<cr>", desc = "Toggle Highlights", icon = { icon = " ", color = "yellow" } },
-                    }
-                },
-
-            }
-        )
-    end
-
-    -- init = function()
-    --     vim.o.timeout = true
-    --     vim.o.timeoutlen = 1000
-    --
-    --     local wk = require("which-key")
-    --     wk.register({
-    --
-    --
-    --         ["<leader>"] = {
-    --             ["<leader>"] = {
-    --                 name = "Source",
-    --                 s = { "<cmd>source ~/.config/nvim/init.lua<cr>", "Source Init.lua" },
-    --             },
-    --
-    --             z = {
-    --                 name = "UTILITIES",
-    --                 c = { "<cmd>CccConvert<cr>", "Convert CCC" },
-    --                 h = { "<cmd>CccHighlighterToggle<cr>", "Toggle Highlighter" },
-    --                 p = { "<cmd>CccPick<cr>", "Pick Color" },
-    --                 s = {"<cmd>Screenkey<cr>", "Screenkey Toggle"},
-    --             },
-    --         },
-    --
-    --     })
-    -- end,
-
 }

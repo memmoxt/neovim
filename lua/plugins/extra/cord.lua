@@ -27,10 +27,10 @@ return {
             lsp = {
                 show_problem_count = false, -- Display number of diagnostics problems
                 severity = 1,               -- 1 = Error, 2 = Warning, 3 = Info, 4 = Hint
-                scope = 'buffer',        -- buffer or workspace
+                scope = 'buffer',           -- buffer or workspace
             },
             idle = {
-                show_idle = true, -- Enable idle status
+                show_idle = false, -- Enable idle status
                 timeout = 300000, -- Timeout in milliseconds after which the idle status is set, 0 to display immediately
                 disable_on_focus = true, -- Do not display idle status when neovim is focused
                 text = 'Idle', -- Text to display when idle
@@ -54,8 +54,8 @@ return {
                     url = 'https://github.com/memmoxt', -- URL where the button leads to ('git' = Git repository URL)
                 },
                 {
-                    label = 'View plugin',
-                    url = 'https://github.com/vyfor/cord.nvim',
+                    label = 'View my Neovim repo',
+                    url = 'https://github.com/memmoxt/neovim',
                 }
             },
         })

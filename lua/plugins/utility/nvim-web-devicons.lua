@@ -1,6 +1,5 @@
 return {
     "nvim-web-devicons",
-
     opts = function()
         return {
             -- your personnal icons can go here (to override)

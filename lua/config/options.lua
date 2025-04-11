@@ -1,5 +1,8 @@
 -- :help option-list (command to list available options)
 
+-- Set one statusline 
+vim.o.laststatus = 3
+
 -- Set visible numbers in the lines on editor
 vim.opt.number = true
 vim.opt.relativenumber = false
@@ -45,3 +48,6 @@ vim.opt.cursorline = true
 vim.opt.pumheight = 8
 --
 vim.opt.shell = "zsh"
+
+-- Blink cursor disable
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20"

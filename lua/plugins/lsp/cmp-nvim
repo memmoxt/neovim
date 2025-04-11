@@ -98,7 +98,6 @@ return {
             formatting = {
                 fields = { "kind", "abbr", "menu" },
                 format = function(entry, item)
-                    
                     -- Colored Icons for CMP with tailwindcss
                     if item.kind == "Color" then
                         item = require("cmp-tailwind-colors").format(entry, item)

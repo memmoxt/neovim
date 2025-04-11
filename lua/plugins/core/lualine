@@ -23,14 +23,14 @@ return {
                 lualine_c = {
                     { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
                     { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-                    {
-                        function()
-                            return require("nvim-navic").get_location()
-                        end,
-                        cond = function()
-                            return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-                        end,
-                    },
+                    -- {
+                    --     function()
+                    --         return require("nvim-navic").get_location()
+                    --     end,
+                    --     cond = function()
+                    --         return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+                    --     end,
+                    -- },
                 },
                 lualine_y = {
                     { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
@@ -42,14 +42,14 @@ return {
                 --         return " " .. os.date("%R")
                 --     end,
                 -- },
-                lualine_z = {
-                    {
-                        require("nvim-possession").status,
-                        cond = function()
-                            return require("nvim-possession").status() ~= nil
-                        end,
-                    },
-                },
+                -- lualine_z = {
+                --     {
+                --         require("nvim-possession").status,
+                --         cond = function()
+                --             return require("nvim-possession").status() ~= nil
+                --         end,
+                --     },
+                -- },
 
             },
             extensions = { "nvim-tree", "lazy" },

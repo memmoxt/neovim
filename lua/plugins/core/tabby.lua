@@ -1,5 +1,6 @@
 return {
     'nanozuki/tabby.nvim',
+    event = 'VeryLazy',
     keys = {
         {
             "<leader>ta",
@@ -49,10 +50,10 @@ return {
     init = function()
         local theme = {
             -- fill = 'TabLineFill',
-            fill = { fg='#f2e9de', bg='#1e1e2e', style='italic' },
+            fill = { fg = '#f2e9de', bg = '#1e1e2e', style = 'italic' },
             head = 'TabLine',
             -- current_tab = 'TabLineSel',
-            current_tab = { fg='#f9e2af', bg='#172554', style='italic' },
+            current_tab = { fg = '#f9e2af', bg = '#172554', style = 'italic' },
             tab = 'TabLine',
             win = 'TabLine',
             tail = 'TabLine',
@@ -94,6 +95,5 @@ return {
                 hl = theme.fill,
             }
         end)
-
     end,
 }

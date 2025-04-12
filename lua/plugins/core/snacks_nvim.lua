@@ -4,7 +4,7 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-        bigfile = { enabled = true },
+        bigfile = { enabled = false },
         dashboard = {
             enabled = true,
             preset = {
@@ -50,9 +50,9 @@ return {
             },
 
         },
-        explorer = { enabled = true },
-        indent = { enabled = true },
-        input = { enabled = true },
+        explorer = { enabled = false },
+        indent = { enabled = false },
+        input = { enabled = false },
         notifier = {
             enabled = true,
             timeout = 3000,
@@ -60,8 +60,8 @@ return {
         picker = { enabled = true },
         quickfile = { enabled = true },
         scope = { enabled = false },
-        scroll = { enabled = true },
-        statuscolumn = { enabled = true },
+        scroll = { enabled = false },
+        statuscolumn = { enabled = false },
         words = { enabled = false },
         styles = {
             notification = {
@@ -192,3 +192,4 @@ return {
         })
     end,
 }
+

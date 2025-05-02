@@ -32,7 +32,21 @@ return {
             end
         end, { silent = true, desc = "Go to previous item whithin the snippet" })
 
-        -- Svelte/CSS snippets
+        -- CSS snippets
+        ls.add_snippets('css', {
+            -- CSS
+            s("--all-border-sides", {
+                t('border-top:'), t(" "), i(1, "size"), t(" "), i(2, "solid"), t(" "), i(3, "color"), t(";"),
+                t({ "", "" }),
+                t('border-right:'), t(" "), rep(1, "size"), t(" "), rep(2, "solid"), t(" "), rep(3, "color"), t(";"),
+                t({ "", "" }),
+                t('border-bottom:'), t(" "), rep(1, "size"), t(" "), rep(2, "solid"), t(" "), rep(3, "color"), t(";"),
+                t({ "", "" }),
+                t('border-left:'), t(" "), rep(1, "size"), t(" "), rep(2, "solid"), t(" "), rep(3, "color"), t(";"),
+            }),
+        })
+
+        -- Svelte snippets
         ls.add_snippets("svelte", {
             s("--script-ts", {
                 t('<script lang="ts">'),
@@ -48,7 +62,6 @@ return {
                 t({ "", "</style>" }),
             }),
 
-            -- CSS
             s("--all-border-sides", {
                 t('border-top:'), t(" "), i(1, "size"), t(" "), i(2, "solid"), t(" "), i(3, "color"), t(";"),
                 t({ "", "" }),
@@ -86,7 +99,7 @@ return {
 
             -- <rect x="number" width="" height="" y="number" rx="0" ry="0" class="stroke-color-number"></rect>
             s("--svg-rect", {
-                t('<rect '), t('x="'), i(1, 'number'), t('" y="'), i(2, 'number'),t('"'),
+                t('<rect '), t('x="'), i(1, 'number'), t('" y="'), i(2, 'number'), t('"'),
                 t(' width="'), i(3, '0'), t('"'),
                 t(' height="'), i(4, '0'), t('"'),
                 t(' rx="'), i(5, '0'), t('"'),

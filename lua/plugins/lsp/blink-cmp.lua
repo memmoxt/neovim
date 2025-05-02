@@ -6,7 +6,11 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-        keymap = { preset = 'default' },
+        keymap = {
+            preset = 'default',
+            ["<Up>"] = {},  --Disable <Up> key
+            ["<Down>"] = {} --Disable <Down> key
+        },
         signature = { enabled = true },
         appearance = {
             nerd_font_variant = 'mono',
@@ -80,8 +84,9 @@ return {
                     components = {
                         kind_icon = {
                             ellipsis = false,
-                            text = function(ctx) 
-                                return ctx.kind_icon .. ctx.icon_gap end,
+                            text = function(ctx)
+                                return ctx.kind_icon .. ctx.icon_gap
+                            end,
                             highlight = function(ctx) return ctx.kind_hl end,
 
                         },
@@ -117,11 +122,11 @@ return {
                             width = { max = 30 },
                             text = function(ctx)
                                 -- Replace "snippets" with "luasnip"
-                                
+
                                 if ctx.source_id == 'snippets' then
                                     return "[" .. "LuaSnip" .. "]"
                                 end
-                                
+
                                 -- -- If source is lsp, show filetype icon
                                 -- if ctx.source_id == 'lsp' then
                                 --     local filetype = vim.bo.filetype

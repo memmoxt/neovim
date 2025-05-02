@@ -133,10 +133,10 @@ return {
             --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
             --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 
-          --   local capabilities = vim.lsp.protocol.make_client_capabilities() -- Enable this for nvim-cmp
-          -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities()) -- Enable this for nvim-cmp
+            --   local capabilities = vim.lsp.protocol.make_client_capabilities() -- Enable this for nvim-cmp
+            -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities()) -- Enable this for nvim-cmp
 
-            local original_capabilities = vim.lsp.protocol.make_client_capabilities() -- Enable this for blink-cmp
+            local original_capabilities = vim.lsp.protocol.make_client_capabilities()             -- Enable this for blink-cmp
             local capabilities = require('blink.cmp').get_lsp_capabilities(original_capabilities) --Enable this for blink-cmp
 
             -- Enable the following language servers
@@ -180,6 +180,7 @@ return {
                         },
                     },
                 },
+
                 tailwindcss = {
                     capabilities = capabilities,
                     filetypes = { "svelte", "html", "typescript", "javascript", "markdown" },
@@ -210,13 +211,32 @@ return {
                 svelte = {
                     capabilities = capabilities,
                 },
+
                 emmet_ls = {
                     capabilities = capabilities,
                     filetypes = { "htmldjango", "html", "typescriptreact", "javascriptreact", "css", "sass", "scss",
                         "less",
                     },
-                }
+                },
 
+                harper_ls = {
+                    settings = {
+                        ["harper-ls"] = {
+                            userDictPath = "~/dict.txt",
+                            linters = {
+                                SentenceCapitalization = false,
+                                SpellCheck = true,
+                            }
+                        }
+                    },
+
+                    filetypes = { "svelte", "c",
+                        "cpp", "cs", "gitcommit", "go",
+                        "html", "java", "javascript", "lua",
+                        "markdown", "nix", "python", "ruby", "rust",
+                        "swift", "toml", "typescript", "typescriptreact",
+                        "haskell", "cmake", "typst", "php", "dart" },
+                }
 
             }
 
@@ -246,6 +266,7 @@ return {
                 "tailwindcss",
                 "emmet_ls",
                 "html",
+                "harper_ls",
                 -- "prettier",
                 -- "pyright",
 

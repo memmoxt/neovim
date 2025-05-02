@@ -30,7 +30,7 @@ for i = 1, 5 do                -- 'for' (Repeat), 'i' (Variable), 1 & 5 (Number)
     end
 end
 
--- Types (in Lua, often just tables or metatables)
+-- Types (in Lua, often just tables or meta tables)
 local TypeExample = {}         -- 'TypeExample' (Variable/Type)
 TypeExample.__index = TypeExample  -- '__index' (Field/Property)
 

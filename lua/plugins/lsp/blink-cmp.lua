@@ -176,6 +176,9 @@ return {
         snippets = { preset = 'luasnip' },
         sources = {
             default = { 'snippets', 'lsp', 'path', 'buffer' },
+            per_filetype = {
+                sql = { 'dadbod', 'buffer' },
+            },
             providers = {
                 buffer = {
                     transform_items = function(ctx, items)
@@ -185,7 +188,8 @@ return {
                         end
                         return items
                     end
-                }
+                },
+                dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
             }
         },
         fuzzy = { implementation = "prefer_rust_with_warning" }

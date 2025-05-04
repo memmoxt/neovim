@@ -51,8 +51,8 @@ return {
                     crust = "#293548",    -- tabby.nvim tab selected bg color
 
                     -- ## COLORS
-                    flamingo= "#64748b", -- used in brackets{}, snippets icon 
-                    pink = "#fde68a", -- used on arrow icon on explorer and indent hl  
+                    flamingo = "#64748b", -- used in brackets{}, snippets icon
+                    pink = "#fde68a",     -- used on arrow icon on explorer and indent hl
 
                 },
             },
@@ -92,6 +92,11 @@ return {
                         WhichKeySeparator = { fg = "#94a3b8" },
                         WhichKeyDesc = { fg = "#fef9c3" }, --snacks whitchkey text
                         WhichKeyValue = { fg = "#ec4899" },
+
+                        -- Custom :hightlight
+                        NotificationInfo = { fg = "#B7BCC5", bg = "#0000FF" },
+                        NotificationWarning = { fg = "#ef4444", bg = "#FFFF00" },
+                        NotificationError = { fg = "#a855f7", bg = "#FF0000" },
                     }
                 end,
             },
@@ -100,7 +105,7 @@ return {
                 gitsigns = true,
                 nvimtree = true,
                 treesitter = true,
-                notify = false,
+                notify = true,
                 mini = {
                     enabled = true,
                     indentscope_color = "",
@@ -108,7 +113,7 @@ return {
                 fidget = true,
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             },
-            custom_highlight = {},
+            -- custom_highlight = {},
         })
 
         -- setup must be called before loading

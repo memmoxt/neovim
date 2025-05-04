@@ -36,6 +36,14 @@ return {
                 ["gx"] = "actions.open_external",
                 ["g."] = "actions.toggle_hidden",
                 ["g\\"] = "actions.toggle_trash",
+                -- ["yp"] = "actions.yank_entry",
+                ["yp"] = {
+                    desc = "Copy filepath to system clipboard",
+                    callback = function()
+                        require("oil.actions").yank_entry.callback()
+                        vim.fn.setreg("+", vim.fn.getreg(vim.v.register))
+                    end,
+                },
             },
         })
     end,

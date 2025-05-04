@@ -1,5 +1,8 @@
 return {
     "NvChad/nvim-colorizer.lua",
+    keys = {
+        { "<leader>ua", "<cmd>ColorizerToggle<CR>", desc = "Toggle Colorizer"},
+    },
     config = function()
         require("colorizer").setup {
             filetypes = { "*" },
@@ -7,8 +10,8 @@ return {
                 RGB = true,          -- #RGB hex codes
                 RRGGBB = true,       -- #RRGGBB hex codes
                 names = true,        -- "Name" codes like Blue or blue
-                RRGGBBAA = true,    -- #RRGGBBAA hex codes
-                AARRGGBB = true,    -- 0xAARRGGBB hex codes
+                RRGGBBAA = true,     -- #RRGGBBAA hex codes
+                AARRGGBB = true,     -- 0xAARRGGBB hex codes
                 rgb_fn = false,      -- CSS rgb() and rgba() functions
                 hsl_fn = false,      -- CSS hsl() and hsla() functions
                 css = false,         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB

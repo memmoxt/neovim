@@ -61,6 +61,7 @@ return {
                     config = {
                         workspaces = {
                             notes = "~/Documents/notes",
+                            arktype = "~/Documents/notes/arktype/",
                         },
                     },
                 },

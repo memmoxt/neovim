@@ -45,23 +45,26 @@ return {                -- Useful plugin to show you pending keybinds.
         -- Document existing key chains
         spec = {
             -- colors for icos available: "azure","blue","cyan","green","grey","orange","purple","red","yellow"
-            { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-            { '<leader>d', group = '[D]ocument' },
-            { '<leader>f', group = '[F]ind' },
+            { '<leader>b', group = '[B]uffer', icon = { icon = "", color = "orange" } },
+            { '<leader>c', group = '[C]ode', mode = { 'n', 'x' }, icon = { icon = " ", color = "orange" } },
+            { '<leader>d', group = '[D]atabase', icon = { icon = " ", color = "blue" } },
+            { '<leader>f', group = '[F]ind', icon = { icon = "󰜼 ", color = "cyan" } },
             { '<leader>r', group = '[R]ename' },
             { '<leader>s', group = '[S]earch', icon = { icon = " ", color = "green" } },
-            { '<leader>w', group = '[W]orkspace' },
+            { '<leader>w', group = '[W]orkspace' , icon= {icon = " ",color ="azure"}},
             { '<leader>t', group = '[T]abs', icon = { icon = " ", color = "blue" } },
             { '<leader>g', group = '[G]it', icon = { icon = " ", color = "orange" } },
             { '<leader>u', group = '[U]I toggles' },
-            { '<leader>x', group = 'Trouble', icon= {icon = "", color="red"} },
+            { '<leader>x', group = 'Trouble', icon = { icon = "", color = "red" } },
             { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
 
             -- Add your custom bindings here
             { 'z', group = 'Fold' },
             { '<leader>cc', '<cmd>lua vim.lsp.buf.format{ async = true }<cr>', desc = 'Format Code', icon = { icon = "󰝕", color = "blue" } },
             { '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<cr>', desc = 'Rename Reference', icon = { icon = "", color = "blue" } },
-            {'<leader>uS', '<cmd>Screenkey<cr>', desc = 'Toggle Screenkey'},
+            { '<leader>uS', '<cmd>Screenkey<cr>', desc = 'Toggle Screenkey' },
+            { '<leader>ww', '<cmd>WinShift<cr>', desc = 'Move window', icon = { icon = " ", color = "blue" } },
+
         },
 
     },

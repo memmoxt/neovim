@@ -12,9 +12,9 @@ return {
             'DBUIFindBuffer',
         },
         keys = {
-            {"<leader>dd", "<cmd>DBUIToggle<cr>", desc = "Dadbod-UI"},
-            {"<leader>da", "<cmd>DBUIAddConnection<cr>", desc = "Add Connection"},
-            {"<leader>df", "<cmd>DBUIFindBuffer<cr>", desc = "Find Buffer"},
+            { "<leader>dd", "<cmd>DBUIToggle<cr>",        desc = "Dadbod-UI" },
+            { "<leader>da", "<cmd>DBUIAddConnection<cr>", desc = "Add Connection" },
+            { "<leader>df", "<cmd>DBUIFindBuffer<cr>",    desc = "Find Buffer" },
         },
         init = function()
             -- Your DBUI configuration

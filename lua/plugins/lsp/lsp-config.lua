@@ -155,6 +155,7 @@ return {
                 -- pyright = {},
                 -- rust_analyzer = {},
                 -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+                -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
                 --
                 -- Some languages (like typescript) have entire language plugins that can be useful:
                 --    https://github.com/pmizio/typescript-tools.nvim
@@ -232,10 +233,16 @@ return {
 
                     filetypes = { "svelte", "c",
                         "cpp", "cs", "gitcommit", "go",
-                        "html", "java", "javascript", "lua",
+                        "html", "java", "javascript",
                         "markdown", "nix", "python", "ruby", "rust",
                         "swift", "toml", "typescript", "typescriptreact",
                         "haskell", "cmake", "typst", "php", "dart" },
+                },
+
+                vim.lsp.enable('postgres_lsp'),
+                postgrestools = {
+                    cmd = { "postgrestools", "lsp-proxy" },
+                    filetypes = { "sql" },
                 }
 
             }

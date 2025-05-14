@@ -65,7 +65,6 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<leader>p", '"+p')
 
 -- Formatting
---
 --vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>")
 
 -- Buffer Navigation
@@ -105,3 +104,4 @@ vim.keymap.set("c", "<Down>", "<C-n>") -- to move DOWN between the Tab-Completio
 
 -- ########### TERM MODE ########### --
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { noremap = true, silent = true }) -- to move out the terminal
+

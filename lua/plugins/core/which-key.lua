@@ -64,7 +64,7 @@ return {                -- Useful plugin to show you pending keybinds.
             { '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<cr>', desc = 'Rename Reference', icon = { icon = "", color = "blue" } },
             { '<leader>uS', '<cmd>Screenkey<cr>', desc = 'Toggle Screenkey' },
             { '<leader>ww', '<cmd>WinShift<cr>', desc = 'Move window', icon = { icon = " ", color = "blue" } },
-
+            { '<leader>T', '<cmd>ToggleTerm<cr>', desc = 'Open Terminal', icon = { icon = " ", color = "purple" } },
         },
 
     },

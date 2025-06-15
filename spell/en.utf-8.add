@@ -100,3 +100,9 @@ hightlights/!
 valus/!
 items/!
 arktype
+WORKDIR
+Dockerfile
+Config
+PostgreSQL
+postgres
+psql

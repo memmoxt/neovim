@@ -22,15 +22,15 @@ vim.keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = " Quit all " })
 -- vim.keymap.set("n", "<leader>ee", vim.cmd.Ex) -- Explorer -- Disabled by Nvim Tree
 
 -- Pressing [leaderkey] + [-] or [|] will make a vertical or horizontal split
-vim.keymap.set("n", "<leader>|", vim.cmd.vsplit, { desc = "Vertical Split" })  -- Vertical Split
+vim.keymap.set("n", "<leader>|", vim.cmd.vsplit, { desc = "Vertical Split" }) -- Vertical Split
 vim.keymap.set("n", "<leader>-", vim.cmd.split, { desc = "Horizontal Split" }) -- Horizontal Split
 
 -- Split Screen Navigation --
 -- [Ctrl + Shift + Arrows] to move between Split Screens
-vim.keymap.set("n", "<C-S-Up>", "<C-w>k")    -- Up arrow
-vim.keymap.set("n", "<C-S-Down>", "<C-w>j")  -- Down arrow
+vim.keymap.set("n", "<C-S-Up>", "<C-w>k") -- Up arrow
+vim.keymap.set("n", "<C-S-Down>", "<C-w>j") -- Down arrow
 vim.keymap.set("n", "<C-S-Right>", "<C-w>l") -- Right arrow
-vim.keymap.set("n", "<C-S-Left>", "<C-w>h")  -- Left arrow
+vim.keymap.set("n", "<C-S-Left>", "<C-w>h") -- Left arrow
 
 -- Resize window using <ctrl> arrow keys
 -- vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
@@ -70,7 +70,7 @@ vim.keymap.set("n", "<leader>p", '"+p')
 -- Buffer Navigation
 vim.keymap.set("n", "<S-A-N>", "<cmd>:bprevious<cr>", { desc = "Buffer Previous" })
 vim.keymap.set("n", "<S-A-O>", "<cmd>:bnext<cr>", { desc = "Buffer Next" })
-vim.keymap.set("n", "<S-A-BS>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" })        -- does not work in tmux
+vim.keymap.set("n", "<S-A-BS>", "<cmd>:bd!<cr>", { desc = "Buffer Delete" }) -- does not work in tmux
 vim.keymap.set("n", "<S-A-K>", "<cmd>:bp! | bd # <cr>", { desc = "Buffer Delete" }) -- alternative for tmux
 vim.keymap.set("n", "<S-A-E>", "<cmd>:tabprevious<cr>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<S-A-I>", "<cmd>:tabnext<cr>", { desc = "Tab Next" })
@@ -99,9 +99,8 @@ vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 vim.keymap.set("i", "ć", "ç", { desc = "Covert cedilha" })
 
 -- ########### COMMAND MODE ########### --
-vim.keymap.set("c", "<Up>", "<C-p>")   -- to move UP between the Tab-Completion suggestions
+vim.keymap.set("c", "<Up>", "<C-p>") -- to move UP between the Tab-Completion suggestions
 vim.keymap.set("c", "<Down>", "<C-n>") -- to move DOWN between the Tab-Completion suggestions
 
 -- ########### TERM MODE ########### --
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { noremap = true, silent = true }) -- to move out the terminal
-

@@ -26,5 +26,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
-
+-- -- Set filetype ren'py (*.rpy) as rpy
+-- vim.cmd [[
+--     autocmd BufRead,BufNewFile *.rpy set filetype=rpy
+-- ]]
 

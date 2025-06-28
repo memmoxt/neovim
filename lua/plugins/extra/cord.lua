@@ -54,7 +54,7 @@ return {
                     url = 'https://github.com/memmoxt', -- URL where the button leads to ('git' = Git repository URL)
                 },
                 {
-                    label = 'View my Neovim repo',
+                    label = "View MemmoXT's Neovim repo",
                     url = 'https://github.com/memmoxt/neovim',
                 }
             },

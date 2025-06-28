@@ -18,7 +18,7 @@ return {
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
 			-- Mason must be loaded before its dependents so we need to set it up here.
-			-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
+			-- :NOTE tip:  `opts = {}` is the same as calling `require('mason').setup({})`
 			{ "williamboman/mason.nvim", opts = {} },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -75,7 +75,7 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
-					-- NOTE: Remember that Lua is a real programming language, and as such it is possible
+					-- :NOTE tip:  Remember that Lua is a real programming language, and as such it is possible
 					-- to define small helper and utility functions so you don't have to repeat yourself.
 					--
 					-- In this case, we create a function that lets us more easily define mappings specific
@@ -156,7 +156,7 @@ return {
 				-- pyright = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-				-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+				-- :CONFIG Reference: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
 				--    https://github.com/pmizio/typescript-tools.nvim
@@ -167,9 +167,9 @@ return {
 				vim.lsp.enable("lua_ls"),
 				lua_ls = {
 
-					-- cmd = { "lua-language-server" },
-					-- filetypes = { "lua" },
-					-- capabilities = capabilities,
+					cmd = { "lua-language-server" },
+					filetypes = { "lua" },
+					capabilities = capabilities,
 					settings = {
 						Lua = {
 							completion = {
@@ -218,17 +218,19 @@ return {
 						},
 					},
 				},
+
 				svelte = {
 					capabilities = capabilities,
 				},
 
+				vim.lsp.enable("emmet_ls"),
 				emmet_ls = {
+					cmd = { "emmet-ls", "--stdio" },
 					capabilities = capabilities,
 					filetypes = {
+						"markdown",
 						"htmldjango",
 						"html",
-						"typescriptreact",
-						"javascriptreact",
 						"css",
 						"sass",
 						"scss",
@@ -236,18 +238,26 @@ return {
 					},
 				},
 
+				-- vim.lsp.enable("harper_ls"),
+				-- harper_ls = {
+				-- 	cmd = { "harper-ls", "--stdio" },
+				-- 	capabilities = capabilities,
+				-- 	filetypes = { "markdown", "html" },
+				-- 	root_markers = {".git"},
+				-- },
+
 				vim.lsp.enable("postgres_lsp"),
 				postgrestools = {
 					cmd = { "postgrestools", "lsp-proxy" },
 					filetypes = { "sql" },
 				},
 
-                vim.lsp.enable('docker_compose_language_service'),
-                docker_compose_language_service = {
-                    cmd = { "docker-compose-langserver", "--stdio" },
-                    filetypes = { "yaml.docker-compose" },
-                    root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" };
-                }
+				vim.lsp.enable("docker_compose_language_service"),
+				docker_compose_language_service = {
+					cmd = { "docker-compose-langserver", "--stdio" },
+					filetypes = { "yaml.docker-compose" },
+					root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
+				},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -273,12 +283,14 @@ return {
 				-- "bashls",
 				-- "autopep8",
 				-- "rust_analyzer",
-				-- "tailwindcss",
+				"tailwindcss",
 				"emmet_ls",
 				"html",
 				"sleek", -- Used to format sql with conform.nvim
-                "docker_compose_language_service",
-				-- "prettier",
+				"docker_compose_language_service",
+				"prettier",
+                "black",
+				-- "harper_ls",
 				-- "pyright",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

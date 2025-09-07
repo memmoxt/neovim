@@ -5,7 +5,7 @@ return {
 		kblayout = "colemak_dh",
 		mode = "phrases",
 		phrases = {
-			"transform",
+			"translate",
 		},
 	},
 	cmd = { "Typr", "TyprStats" },

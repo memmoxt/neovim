@@ -27,6 +27,11 @@ return {
             -- same as `override` but specifically for overrides by filename
             -- takes effect when `strict` is true
             override_by_filename = {
+                ["app.css"] = {
+                    icon = "",
+                    color = "#264DE4",
+                    name = "CSS3",
+                },
 
                 [".gitignore"] = {
                     icon = "",

@@ -1,17 +1,17 @@
 return {
 
-	-- {
-	--     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-	--     -- used for completion, annotations and signatures of Neovim apis
-	--     'folke/lazydev.nvim',
-	--     ft = 'lua',
-	--     opts = {
-	--         library = {
-	--             -- Load luvit types when the `vim.uv` word is found
-	--             { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-	--         },
-	--     },
-	-- },
+	{
+		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+		-- used for completion, annotations and signatures of Neovim apis
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
 	{
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
@@ -166,17 +166,28 @@ return {
 				--
 				vim.lsp.enable("lua_ls"),
 				lua_ls = {
-
 					cmd = { "lua-language-server" },
 					filetypes = { "lua" },
 					capabilities = capabilities,
+					root_markers = {
+						".emmyrc.json",
+						".luarc.json",
+						".luarc.jsonc",
+						".luacheckrc",
+						".stylua.toml",
+						"stylua.toml",
+						"selene.toml",
+						"selene.yml",
+						".git",
+					},
 					settings = {
 						Lua = {
 							completion = {
 								callSnippet = "Replace",
 							},
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							diagnostics = { disable = { "missing-fields" }, globals = { "vim", "Snacks" } },
+							diagnostics = { globals = { "vim" } },
+							-- diagnostics = { disable = { "missing-fields" }, globals = { "vim", "Snacks" } },
 							telemetry = {
 								enable = false,
 							},
@@ -187,7 +198,6 @@ return {
 				tailwindcss = {
 					capabilities = capabilities,
 					filetypes = { "svelte", "html", "typescript", "javascript", "markdown" },
-
 					root_pattern = {
 						"tailwind.config.js",
 						"tailwind.config.cjs",
@@ -238,6 +248,34 @@ return {
 					},
 				},
 
+				vim.lsp.enable("denols"),
+				denols = {
+					cmd = { "deno", "lsp" },
+					capabilities = capabilities,
+					cmd_env = { NO_COLOR = true },
+					filetypes = {
+						"svelte",
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+					},
+					settings = {
+						deno = {
+							enable = true,
+							suggest = {
+								imports = {
+									hosts = {
+										["https://deno.land"] = true,
+									},
+								},
+							},
+						},
+					},
+				},
+
 				-- vim.lsp.enable("harper_ls"),
 				-- harper_ls = {
 				-- 	cmd = { "harper-ls", "--stdio" },
@@ -246,18 +284,18 @@ return {
 				-- 	root_markers = {".git"},
 				-- },
 
-				vim.lsp.enable("postgres_lsp"),
-				postgrestools = {
-					cmd = { "postgrestools", "lsp-proxy" },
-					filetypes = { "sql" },
-				},
-
-				vim.lsp.enable("docker_compose_language_service"),
-				docker_compose_language_service = {
-					cmd = { "docker-compose-langserver", "--stdio" },
-					filetypes = { "yaml.docker-compose" },
-					root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
-				},
+				-- vim.lsp.enable("postgres_lsp"),
+				-- postgrestools = {
+				-- 	cmd = { "postgrestools", "lsp-proxy" },
+				-- 	filetypes = { "sql" },
+				-- },
+				--
+				-- vim.lsp.enable("docker_compose_language_service"),
+				-- docker_compose_language_service = {
+				-- 	cmd = { "docker-compose-langserver", "--stdio" },
+				-- 	filetypes = { "yaml.docker-compose" },
+				-- 	root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
+				-- },
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -278,20 +316,21 @@ return {
 				"stylua", -- Used to format Lua code
 				-- "ts_ls",
 				"svelte",
-				"cssls",
+				-- "cssls",
 				"lua_ls",
 				-- "bashls",
 				-- "autopep8",
 				-- "rust_analyzer",
 				"tailwindcss",
 				"emmet_ls",
-				"html",
-				"sleek", -- Used to format sql with conform.nvim
-				"docker_compose_language_service",
-				"prettier",
-                "black",
+				-- "html",
+				-- "sleek", -- Used to format sql with conform.nvim
+				-- "docker_compose_language_service",
+				-- "prettier",
+				-- "black",
 				-- "harper_ls",
 				-- "pyright",
+				"denols",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

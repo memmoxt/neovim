@@ -1,8 +1,8 @@
 -- Change indentation spaces for filetypes
-vim.cmd [[
-  filetype plugin indent on
-  autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 expandtab
-]]
+-- vim.cmd [[
+--   filetype plugin indent on
+--   autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 expandtab
+-- ]]
 
 -- highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd [[
@@ -26,10 +26,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
--- denols
-vim.g.markdown_fenced_languages = {
-  "ts=typescript"
-}
 
 -- -- Set filetype ren'py (*.rpy) as rpy
 -- vim.cmd [[

@@ -20,10 +20,11 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort", "black" },
-            rpy = {"black"},
+			-- python = { "isort", "black" },
+			rpy = { "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
-            markdown = { "prettierd", "prettier" },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
+			markdown = { "prettierd", "prettier" },
 			sql = { "sleek" },
 		},
 

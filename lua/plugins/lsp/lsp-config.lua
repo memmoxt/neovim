@@ -164,7 +164,6 @@ return {
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
 				-- ts_ls = {},
 				--
-				vim.lsp.enable("lua_ls"),
 				lua_ls = {
 					cmd = { "lua-language-server" },
 					filetypes = { "lua" },
@@ -194,6 +193,7 @@ return {
 						},
 					},
 				},
+                vim.lsp.enable("lua_ls"),
 
 				tailwindcss = {
 					capabilities = capabilities,
@@ -229,7 +229,10 @@ return {
 					},
 				},
 
+				vim.lsp.enable("svelte"),
 				svelte = {
+					cmd = { "svelteserver", "--stdio" },
+					filetypes = { "svelte" },
 					capabilities = capabilities,
 				},
 
@@ -248,33 +251,44 @@ return {
 					},
 				},
 
-				vim.lsp.enable("denols"),
-				denols = {
-					cmd = { "deno", "lsp" },
+				vim.lsp.enable("jsonls"),
+				jsonls = {
+					cmd = { "vscode-json-language-server", "--stdio" },
 					capabilities = capabilities,
-					cmd_env = { NO_COLOR = true },
 					filetypes = {
-						"svelte",
-						"javascript",
-						"javascriptreact",
-						"javascript.jsx",
-						"typescript",
-						"typescriptreact",
-						"typescript.tsx",
+						"json",
+						"jsonc",
 					},
-					settings = {
-						deno = {
-							enable = true,
-							suggest = {
-								imports = {
-									hosts = {
-										["https://deno.land"] = true,
-									},
-								},
-							},
-						},
-					},
+					root_markers = { ".git" },
 				},
+
+				-- vim.lsp.enable("denols"),
+				-- denols = {
+				-- 	cmd = { "deno", "lsp" },
+				-- 	capabilities = capabilities,
+				-- 	cmd_env = { NO_COLOR = true },
+				-- 	filetypes = {
+				-- 		"svelte",
+				-- 		"javascript",
+				-- 		"javascriptreact",
+				-- 		"javascript.jsx",
+				-- 		"typescript",
+				-- 		"typescriptreact",
+				-- 		"typescript.tsx",
+				-- 	},
+				-- 	settings = {
+				-- 		deno = {
+				-- 			enable = true,
+				-- 			suggest = {
+				-- 				imports = {
+				-- 					hosts = {
+				-- 						["https://deno.land"] = true,
+				-- 					},
+				-- 				},
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
 
 				-- vim.lsp.enable("harper_ls"),
 				-- harper_ls = {
@@ -323,6 +337,7 @@ return {
 				-- "rust_analyzer",
 				"tailwindcss",
 				"emmet_ls",
+                "jsonls",
 				-- "html",
 				-- "sleek", -- Used to format sql with conform.nvim
 				-- "docker_compose_language_service",
@@ -330,7 +345,7 @@ return {
 				-- "black",
 				-- "harper_ls",
 				-- "pyright",
-				"denols",
+				-- "denols",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

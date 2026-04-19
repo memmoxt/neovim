@@ -54,12 +54,13 @@ return { -- Useful plugin to show you pending keybinds.
 			{ "<leader>w", group = "[W]orkspace", icon = { icon = " ", color = "azure" } },
 			{ "<leader>t", group = "[T]abs", icon = { icon = " ", color = "blue" } },
 			{ "<leader>g", group = "[G]it", icon = { icon = " ", color = "orange" } },
-			{ "<lader>u", group = "[U]I toggles" },
+			{ "<leader>u", group = "[U]I toggles", icon = { icon = " ", color = "cyan" } },
 			{ "<leader>x", group = "Trouble", icon = { icon = "", color = "red" } },
 			{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
 
 			-- Add your custom bindings here
 			{ "z", group = "Fold" },
+			{ "<leader>i", icon = { icon = "", color = "purple" } },
 			-- { '<leader>cc', '<cmd>lua vim.lsp.buf.format{ async = true }<cr>', desc = 'Format Code', icon = { icon = "󰝕", color = "blue" } }, -- Uses LSP to format
 			{ "<leader>cc", desc = "Format Code", icon = { icon = "󰝕", color = "blue" } }, -- Uses conform to format
 			{
@@ -71,7 +72,12 @@ return { -- Useful plugin to show you pending keybinds.
 			{ "<leader>uS", "<cmd>Screenkey<cr>", desc = "Toggle Screenkey" },
 			{ "<leader>ww", "<cmd>WinShift<cr>", desc = "Move window", icon = { icon = " ", color = "blue" } },
 			{ "<leader>T", "<cmd>ToggleTerm<cr>", desc = "Open Terminal", icon = { icon = " ", color = "purple" } },
-			{ "<leader>xq", "<cmd>TodoTrouble<cr>", desc = "Toggle TODO list", icon = { icon = "󱜫 ", color = "green" } },
+			{
+				"<leader>xq",
+				"<cmd>TodoTrouble<cr>",
+				desc = "Toggle TODO list",
+				icon = { icon = "󱜫 ", color = "green" },
+			},
 		},
 	},
 }

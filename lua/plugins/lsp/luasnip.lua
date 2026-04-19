@@ -101,6 +101,12 @@ return {
 				i(0),
 				t({ "", "</script>" }),
 			}),
+            s("$effect",{
+                t("$effect(() =>{"),
+                t({"", "\t"}),
+                i(0),
+                t({"", "});"}),
+            }),
 
 			s("--style-scss", {
 				t('<style lang="scss">'),

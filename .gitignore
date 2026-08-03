@@ -1,4 +1,5 @@
 
+
 # ignore all logs
 *.log
 lazy-lock.json
@@ -6,6 +7,6 @@ lazy-lock.json
 lua/plugins/bin/
 /sessions/
 
-
-
-
+# Pix Agent
+.pi/
+.pi-lens/

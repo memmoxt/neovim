@@ -1,34 +1,19 @@
-return {
-    "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    keys = {
-        {
-            "<leader>fs",
-            mode = { "n" },
-            desc = "Load Session CWD",
-        },
-        {
-            "<leader>fS",
-            mode = { "n" },
-            desc = "Select Session to load",
-        },
-        {
-            "<leader>fl",
-            mode = { "n" },
-            desc = "Load last Session",
-        },
+vim.pack.add({
+    { src = "https://github.com/folke/persistence.nvim", version = 'stable' },
+})
 
-    },
-    opts = {
-        -- load the session for the current directory
-        vim.keymap.set("n", "<leader>fs", function() require("persistence").load() end),
+require('persistence').setup({})
 
-        -- select a session to load
-        vim.keymap.set("n", "<leader>fS", function() require("persistence").select() end),
+-- load the session for the current directory
+vim.keymap.set("n", "<leader>fs", function() require("persistence").load() end, { desc = "Load Session CWD" })
 
-        -- load the last session
-        vim.keymap.set("n", "<leader>fl", function() require("persistence").load({ last = true }) end),
+-- select a session to load
+vim.keymap.set("n", "<leader>fS", function() require("persistence").select() end, { desc = "Select Session to load" })
 
-        -- stop Persistence => session won't be saved on exit
-        vim.keymap.set("n", "<leader>fd", function() require("persistence").stop() end)     }
-}
+-- load the last session
+vim.keymap.set("n", "<leader>fl", function() require("persistence").load({ last = true }) end,
+    { desc = "Load last Session" })
+
+-- stop Persistence => session won't be saved on exit
+vim.keymap.set("n", "<leader>fd", function() require("persistence").stop() end,
+    { desc = "Session won't be saved on exit" })

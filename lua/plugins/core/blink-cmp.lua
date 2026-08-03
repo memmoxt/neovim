@@ -1,16 +1,8 @@
-return {
-    'saghen/blink.cmp',
-    dependencies = { 'rafamadriz/friendly-snippets', 'L3MON4D3/LuaSnip' },
-    version = '1.*',
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-        keymap = {
-            preset = 'default',
-            ["<Up>"] = {},  --Disable <Up> key
-            ["<Down>"] = {} --Disable <Down> key
-        },
+vim.pack.add({ 'https://github.com/saghen/blink.lib', 'https://github.com/saghen/blink.cmp' })
+local cmp = require('blink.cmp')
+cmp.build():pwait()
+cmp.setup(
+    {
         signature = { enabled = true },
         appearance = {
             nerd_font_variant = 'mono',
@@ -48,7 +40,6 @@ return {
                 Lua = "󰢱 ",
             },
         },
-
         completion = {
             menu = {
                 enabled = true,
@@ -172,7 +163,9 @@ return {
                 },
             },
         },
+
         snippets = { preset = 'luasnip' },
+
         sources = {
             default = { 'snippets', 'lsp', 'path', 'buffer' },
             per_filetype = {
@@ -191,7 +184,4 @@ return {
                 dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
             }
         },
-        fuzzy = { implementation = "prefer_rust_with_warning" }
-    },
-    opts_extend = { "sources.default" },
-}
+    })

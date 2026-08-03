@@ -1,10 +1,9 @@
-return {
-    'sindrets/winshift.nvim',
-    event = "VeryLazy",
-    config = function()
-        -- Lua
-        require("winshift").setup({
-            highlight_moving_win = true, -- Highlight the window being moved
+
+vim.pack.add{"https://github.com/sindrets/winshift.nvim"}
+
+-- ⚠️ SHORTCUT defined in which-key.nvim 
+require("winshift").setup{
+highlight_moving_win = true, -- Highlight the window being moved
             focused_hl_group = "Visual", -- The highlight group used for the moving window
             moving_win_options = {
                 -- These are local options applied to the moving window while it's
@@ -55,11 +54,9 @@ return {
                         bufname = {}, -- List of vim regex patterns matching ignored buffer names
                     },
                     ---A function used to filter the list of selectable windows.
-                    ---@param winids integer[] # The list of selectable window IDs.
+                    ----@param winids integer[] # The list of selectable window IDs.
                     ---@return integer[] filtered # The filtered list of window IDs.
                     filter_func = nil,
                 })
             end,
-        })
-    end,
 }

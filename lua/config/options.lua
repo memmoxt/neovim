@@ -1,14 +1,19 @@
--- :help option-list (command to list available options)
+-- Enable new vim core UI tool
+-- Press g + < to enter the pager
+require('vim._core.ui2').enable({})
 
--- Set one statusline 
-vim.o.laststatus = 3
+-- Set one statusline
+vim.opt.laststatus = 3
 
--- Set visible numbers in the lines on editor
+-- Set visible numbers of lines in the editor
 vim.opt.number = true
 vim.opt.relativenumber = false
 
--- Highlight the text line of the cursor
+-- Hightlight the text line of the cursor
 vim.opt.cursorline = false
+
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"
 
 --Tab & Indent
 local tab_indent = 4
@@ -45,7 +50,7 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 
 -- Pop-up menu max height, mainly for cmp
-vim.opt.pumheight = 8
+-- vim.opt.pumheight = 8
 --
 vim.opt.shell = "zsh"
 

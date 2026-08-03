@@ -1,7 +1,7 @@
 vim.pack.add({
-    { src = "https://github.com/vim-indentwise" },
-
+    { src = "https://github.com/jeetsukumaran/vim-indentwise" },
 })
+
 
 vim.api.nvim_set_keymap('n', '<S-Left>',
     [[:execute "normal \<Plug>(IndentWisePreviousLesserIndent)"<CR>]],

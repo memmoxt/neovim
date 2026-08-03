@@ -5,21 +5,27 @@
 -- TERM MODE 		     = 	"t"
 -- COMMAND MODE 	     = 	"c"
 
+-- Restart Neovim
+vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart Neovim" })
+
 -- Save File
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- Toggle Spelling
--- vim.keymap.set("n", "<leader>cc", "<cmd>set invspell<cr><esc>", { desc = "Toggle Spelling" })
+vim.keymap.set("n", "<leader>us", "<cmd>set invspell<cr><esc>", { desc = "Toggle Spelling" })
 
 -- ########### NORMAL MODE ########### --
 
 -- Go one line up on the first character on that line
 vim.keymap.set({ "n" }, "_", "k^", { desc = "Move up to first Char" })
 
+-- Better shift + j 
+vim.keymap.set("n", "J", "mzJ`z", {desc = "Join lines without moving cursor"})
+
+
 -- Quit All
 vim.keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = " Quit all " })
 
--- vim.keymap.set("n", "<leader>ee", vim.cmd.Ex) -- Explorer -- Disabled by Nvim Tree
 
 -- Pressing [leaderkey] + [-] or [|] will make a vertical or horizontal split
 vim.keymap.set("n", "<leader>|", vim.cmd.vsplit, { desc = "Vertical Split" }) -- Vertical Split
@@ -38,7 +44,7 @@ vim.keymap.set("n", "<C-S-Left>", "<C-w>h") -- Left arrow
 -- vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 -- vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
--- Resize Window with arrows --
+-- Resize Window without arrow keys --
 -- [Ctrl + n/e/i/o (same as my arrows keys)] to resize Split Screen Window
 vim.keymap.set("n", "<C-A-e>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
 vim.keymap.set("n", "<C-A-i>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
@@ -54,8 +60,8 @@ vim.keymap.set("n", "<PageDown>", "<C-d>zz")
 -- Scrolling
 vim.keymap.set("n", "<C-e>", "<C-e>") -- nothing is modified (it's just to remember)
 vim.keymap.set("n", "<C-y>", "<C-y>") -- Search Terms Centralization
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "n", "nzz", {desc = "Next search item centralization"})
+vim.keymap.set("n", "N", "Nzz", {desc = "Previous search item centralization"})
 
 -- Copy to Clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
@@ -65,7 +71,7 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<leader>p", '"+p')
 
 -- Formatting
---vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>")
+--vim.keymap.set("n", "<leader>cc", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>")
 
 -- Buffer Navigation
 vim.keymap.set("n", "<S-A-N>", "<cmd>:bprevious<cr>", { desc = "Buffer Previous" })
@@ -80,6 +86,11 @@ vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
 
 -- ########### VISUAL MODE ########### --
+
+-- Indentation with ">" and "<" in visual mode
+vim.keymap.set("v", "<" , "<gv", {desc = "Unindent and keep selection"})
+vim.keymap.set("v", ">" , ">gv", {desc = "Indent and keep selection"})
+
 -- Copy to Clipboard
 vim.keymap.set("v", "<leader>y", '"+y')
 
@@ -96,11 +107,10 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move up" })
 -- Move Up and Down with Auto-Indent (INSERT MODE)
 vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-vim.keymap.set("i", "ć", "ç", { desc = "Covert cedilha" })
 
 -- ########### COMMAND MODE ########### --
-vim.keymap.set("c", "<Up>", "<C-p>") -- to move UP between the Tab-Completion suggestions
-vim.keymap.set("c", "<Down>", "<C-n>") -- to move DOWN between the Tab-Completion suggestions
+-- vim.keymap.set("c", "<Up>", "<C-p>") -- to move UP between the Tab-Completion suggestions
+-- vim.keymap.set("c", "<Down>", "<C-n>") -- to move DOWN between the Tab-Completion suggestions
 
 -- ########### TERM MODE ########### --
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { noremap = true, silent = true }) -- to move out the terminal

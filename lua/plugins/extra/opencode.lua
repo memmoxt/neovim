@@ -5,7 +5,7 @@ vim.pack.add({
   },
 })
 
----@type opencode.Opts
+----@type opencode.Opts
 vim.g.opencode_opts = {
   -- Your configuration, if any; goto definition on the type for details
 }
